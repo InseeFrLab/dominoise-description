@@ -1,0 +1,54 @@
+project:
+  type: book
+  output-dir: _site
+  execute-dir: project                # chunks exécutés depuis la racine du projet
+  pre-render: data-raw/build_data.R   # reconstruit les tableaux si absents
+
+book:
+  title: "dominoise — guide d'utilisation"
+  subtitle: "Perturber des tableaux de données de volume et arbitrer risque-utilité"
+  author: "Julien Jamme (INSEE)"
+  date: today
+  date-format: "D MMMM YYYY"
+  language: fr
+  search: true
+  repo-url: https://github.com/InseeFrLab/dominoise-description
+  repo-actions: [issue, source]
+  sidebar:
+    style: docked
+  chapters:
+    - index.qmd
+    - chapitres/01-parametres.qmd
+    - chapitres/02-un-tableau.qmd
+    - chapitres/03-plusieurs-tableaux.qmd
+    - chapitres/04-comparer-parametres.qmd
+    - chapitres/05-calibrage.qmd
+    - chapitres/references.qmd
+
+bibliography: references.bib
+lang: fr
+
+format:
+  html:
+    theme:
+      light: [cosmo, styles.scss]
+    toc: true
+    toc-title: "Sur cette page"
+    code-link: true
+    code-copy: true
+    fig-width: 8
+    fig-height: 4.5
+    fig-align: center
+
+execute:
+  freeze: auto      # do not re-run unchanged chapters
+  echo: true
+  warning: false
+  message: false
+
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: "#>"
+    R.options:
+      knitr.graphics.auto_pdf: false

@@ -1,0 +1,154 @@
+# Comparer des jeux de paramètres
+
+```{r}
+#| include: false
+source("R/setup.R")
+```
+
+Ce chapitre ne mobilise **aucune donnée**. C'est la propriété la plus utile du
+mécanisme : le risque et la perte d'information s'expriment en forme close à
+partir des seuls paramètres, si bien qu'on peut comparer des candidats — et
+mesurer ce que chacun coûte — avant même d'avoir un tableau sous la main.
+
+Les règles sont ici figées à leurs valeurs par défaut, $\beta_I = 0{,}2$ et
+$\tau_I = 0{,}5$, et l'on fait varier les trois paramètres du mécanisme. La
+grille reprend celle du papier, augmentée de quelques valeurs de
+$\sigma_\varepsilon$ pour montrer l'effet du bruit de fond.
+
+```{r}
+tau_I <- 0.5
+
+grille <- pm_calib_dominance(
+  sigma_nu  = c(0.2, 0.3, 0.4),
+  n         = c(3, 6, 9, 12),
+  sigma_eps = c(0, 0.031, 0.05),
+  beta      = 0.2
+)
+
+grille
+```
+
+La table est **résolue en $\rho$** : chaque ligne donne, pour un jeu de
+paramètres et un niveau de dominance, le risque du scénario I et la perte
+d'information dans ses deux métriques (`EZ`, l'espérance de la perte absolue, et
+`CI`, la borne supérieure de l'intervalle de confiance à 95 %).
+
+## La table de décision
+
+`summary()` réduit cette grille à ce qui fonde la décision : où le risque
+culmine, à quelle hauteur, et entre quelles bornes se situe la perte.
+
+```{r}
+bilan <- summary(grille)
+head(bilan, 12)
+```
+
+Trois lectures s'imposent, et ce sont elles qu'il faut avoir en tête pour
+calibrer.
+
+**$\sigma_\nu$ fixe la perte maximale.** Les colonnes `EZ_max` et `CI_max`, qui
+donnent la perte à $\rho = 1$, ne dépendent pas de $n$ : à $\sigma_\nu$ et
+$\sigma_\varepsilon$ donnés, elles se répètent à l'identique pour toutes les
+valeurs de $n$. C'est $\sigma_\nu$ qui détermine la perturbation subie par les
+contributeurs uniques.
+
+```{r}
+bilan |>
+  filter(sigma_nu == 0.3, sigma_eps == 0.031) |>
+  select(n, risk_max, rho_at_max_risk, EZ_min, EZ_max)
+```
+
+**$\sigma_\varepsilon$ fixe le plancher de perte.** La colonne `EZ_min`, la perte
+subie par les cellules les moins concentrées, ne dépend que de lui — et vaut zéro
+quand il est nul. C'est le bruit universel, appliqué à toutes les cellules y
+compris les moins sensibles.
+
+```{r}
+bilan |>
+  filter(sigma_nu == 0.3, n == 6) |>
+  select(sigma_eps, EZ_min, EZ_max, risk_max)
+```
+
+**$n$ ne déplace pas la plage de perte, mais déforme la courbe de risque.** À
+$\sigma_\nu$ fixé, augmenter $n$ élève le pire risque tout en épargnant les
+cellules de dominance intermédiaire. C'est l'arbitrage central de l'étape 2 du
+calibrage.
+
+## L'allure du risque selon la dominance
+
+```{r}
+#| fig-cap: "Risque du scénario I selon la dominance, par valeur de n et de sigma_nu."
+#| fig-alt: "Courbes en cloche : le risque est nul pour les cellules peu concentrées, culmine au voisinage du seuil de dominance, puis redescend."
+#| fig-height: 5
+pm_plot_risk_profile(grille, sigma_eps = 0.031, thresholds = tau_I)
+```
+
+Le profil est en cloche. Le risque est nul pour les cellules faiblement
+concentrées — aucun contributeur n'y domine, il n'y a rien à inférer — croît
+jusqu'au voisinage du seuil de dominance, puis **redescend** pour les cellules
+les plus concentrées. Cette redescente est voulue : la composante $\rho^n\nu$
+concentre précisément la perturbation sur les cellules très dominées, ramenant
+leur risque à un niveau bas malgré leur sensibilité intrinsèque.
+
+On voit aussi que le pic monte avec $n$ et descend avec $\sigma_\nu$.
+
+## Où le plafond est-il franchi ?
+
+```{r}
+#| fig-cap: "Pire risque selon n, avec la frontière du plus grand n admissible."
+#| fig-alt: "Courbes croissantes du risque maximal en fonction de n, coupant la ligne du plafond tau."
+grille_fine <- pm_calib_dominance(
+  sigma_nu  = c(0.2, 0.3, 0.4),
+  n         = seq(1, 12, by = 0.2),
+  sigma_eps = 0.031,
+  beta      = 0.2
+)
+
+pm_plot_risk_max(grille_fine, x_axis = "n", tau = tau_I, mark_frontier = TRUE)
+```
+
+Le pire risque croît de façon monotone avec $n$. L'ensemble des valeurs
+admissibles est donc un intervalle $\{n \le n_{\max}\}$, et les points marqués
+sont les $n_{\max}$ de chaque $\sigma_\nu$ — exactement ce que renvoie
+`pm_suggest_n()` (chapitre 5). Avec $\sigma_\nu = 0{,}2$, aucune valeur de $n$
+ne respecte le plafond : ce niveau de bruit est insuffisant.
+
+## La carte risque-utilité
+
+La figure de synthèse trace, pour chaque couple, le risque contre la perte
+d'information quand $\rho$ parcourt $]0;1]$.
+
+```{r}
+#| fig-cap: "Compromis risque-utilité : risque du scénario I contre perte d'information."
+#| fig-alt: "Trajectoires en boucle reliant perte et risque, une par couple de paramètres, avec des repères aux niveaux de dominance de référence."
+#| fig-height: 4
+pm_plot_tradeoff(
+  grille,
+  sigma_eps = 0.031,
+  rho_marks = c(0.8, 0.9, 0.95)
+)
+```
+
+Chaque trajectoire se lit de gauche à droite à mesure que $\rho$ augmente. Le
+producteur y lit d'un coup, pour un candidat donné, le pire risque encouru
+**et** la perte qu'il coûte. À $n$ fixé, diminuer $\sigma_\nu$ relève le pic de
+risque tout en abaissant la perte à laquelle il est atteint ; à $\sigma_\nu$
+fixé, augmenter $n$ relève le pic avec peu d'effet sur sa position.
+
+## Les candidats admissibles
+
+```{r}
+bilan |>
+  filter(sigma_eps == 0.031, risk_max <= tau_I) |>
+  arrange(EZ_max) |>
+  select(sigma_nu, n, risk_max, rho_at_max_risk, EZ_min, EZ_max)
+```
+
+Parmi les couples respectant le plafond, celui qui minimise la perte maximale
+n'est pas nécessairement le meilleur : un $\sigma_\nu$ plus élevé autorise un
+$n$ plus grand, donc épargne davantage les cellules de dominance intermédiaire.
+Départager suppose de savoir **où se situent** les cellules à diffuser — ce que
+le profil de dominance du tableau réel permettra de trancher.
+
+Le chapitre suivant reprend cette comparaison sous forme de procédure, en la
+menant scénario par scénario.

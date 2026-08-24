@@ -1,0 +1,154 @@
+# Perturber un tableau
+
+```{r}
+#| include: false
+source("R/setup.R")
+params <- pm_params() |>
+  pm_commit_diff() |>
+  pm_commit_dominance(sigma_nu = 0.4, n = 4)
+```
+
+## Ce que le package attend
+
+`dominoise` travaille sur un tableau **déjà agrégé**, accompagné de clés de
+cellule **déjà agrégées** elles aussi. Quatre colonnes suffisent.
+
+| Colonne | Obligatoire | Contenu |
+|---|---|---|
+| `total` | oui | l'agrégat $Y$, strictement positif |
+| `x1` | oui | la plus grosse contribution individuelle, même unité que le total |
+| `x2` | non | la deuxième contribution — ouvre l'évaluation du scénario II |
+| `ck_var` | oui | la clé de cellule, dans $[0;1]$ |
+
+Notre tableau de démonstration coche ces cases : le chiffre d'affaires régional,
+sa plus grosse et sa deuxième contribution, et la clé.
+
+```{r}
+tab <- tables$region
+head(tab)
+```
+
+Si la colonne de clés contient la **somme brute** des clés individuelles plutôt
+que sa partie fractionnaire, il suffit de le signaler avec
+`reduce_key = TRUE` ; le package s'en charge. Sinon, une clé hors de $[0;1]$
+déclenche une erreur, plutôt qu'un bruit silencieusement aberrant.
+
+## Appliquer le bruit
+
+```{r}
+res <- pm_perturb(
+  tab,
+  total     = "ca",
+  x1        = "ca_x1",
+  x2        = "ca_x2",
+  ck_var    = "ck",
+  params    = params,
+  indicator = "chiffre_affaires"
+)
+
+head(res)
+```
+
+Le tableau initial est renvoyé intact, augmenté de cinq colonnes : la dominance
+`rho`, la part du deuxième contributeur `rho2`, les deux clés dérivées `ck_nu`
+et `ck_eps`, et le total perturbé `ca_pert`.
+
+L'argument `indicator` mérite une mention particulière. Il entre dans la chaîne
+hachée qui produit les tirages : deux indicateurs différents calculés sur les
+mêmes cellules reçoivent ainsi des bruits indépendants. C'est aussi lui qui
+garantit la reproductibilité — relancer la même commande redonne exactement les
+mêmes valeurs. Par défaut il vaut le nom de la colonne de total, mais mieux vaut
+le fixer explicitement : c'est une convention de nommage à gouverner dans la
+durée (chapitre 3).
+
+```{r}
+res2 <- pm_perturb(tab, "ca", "ca_x1", "ck", params,
+                   indicator = "chiffre_affaires")
+identical(res$ca_pert, res2$ca_pert)
+```
+
+## Ce que le bruit a coûté
+
+Le mécanisme étant analytique, on connaissait avant même de toucher aux données
+la perte moyenne à attendre. `assess_utility_empirical()` confronte les deux.
+
+```{r}
+assess_utility_empirical(res)
+```
+
+La colonne `theo_mean_abs` donne l'espérance théorique de la perte absolue,
+évaluée à la dominance propre de chaque cellule puis moyennée sur le tableau ;
+`mean_abs_dev` donne l'écart effectivement subi. Les deux doivent être proches :
+c'est la vérification de cohérence la plus simple à présenter à un comité du
+secret. Les colonnes `pct_above_*` indiquent la part des cellules dont l'écart
+relatif dépasse 5, 10 et 20 %.
+
+Une ventilation est possible avec `by`, par exemple par strate de publication.
+
+## Ce que le bruit a protégé
+
+```{r}
+assess_risk_empirical(res, scenario = "I")
+```
+
+`observed_pct` mesure la proportion de cellules pour lesquelles l'attaque du
+scénario I aurait **effectivement** réussi sur ce tirage-ci : celles où
+$|Y' - X_1| / X_1 < \beta$. `theo_mean` est la probabilité théorique moyenne, et
+`theo_max` son maximum sur le tableau. Le taux observé est une réalisation de la
+probabilité garantie : les deux doivent se recouper.
+
+Le scénario II se mesure de la même façon, à condition d'avoir déclaré `x2`.
+
+```{r}
+assess_risk_empirical(res, scenario = "II")
+```
+
+La différenciation, elle, ne s'évalue pas cellule par cellule : elle porte sur
+des **couples** de cellules. Elle est contrôlée a priori par la borne du
+scénario DIFF, fixée au moment du calibrage (chapitre 5).
+
+## Visualiser l'impact
+
+`pm_plot_impact()` place chaque cellule selon sa dominance et l'écart relatif
+qu'elle a subi, et superpose l'enveloppe théorique : la bande de confiance à
+95 % et l'espérance de la perte absolue.
+
+```{r}
+#| fig-cap: "Perturbation observée et enveloppe théorique, selon la dominance."
+#| fig-alt: "Nuage de points de l'écart relatif contre rho, à l'intérieur d'une bande de confiance qui s'élargit avec la dominance."
+pm_plot_impact(res)
+```
+
+Deux lectures s'en dégagent. Le nuage remplit la bande sans en déborder
+systématiquement, ce qui confirme l'accord entre théorie et réalisation. Et la
+bande **s'élargit avec $\rho$** : les cellules dominées, les plus sensibles,
+sont les plus fortement perturbées, tandis que les cellules bien réparties ne
+subissent que le bruit de fond $\sigma_\varepsilon$. C'est exactement l'intention
+du mécanisme.
+
+## Les cellules que le mécanisme ne protège pas
+
+Le bruit étant multiplicatif, il est sans effet sur les totaux nuls et
+quasi nuls : perturber 0 laisse 0. `pm_perturb()` laisse ces cellules
+inchangées et le signale par un avertissement. Elles appellent un traitement
+séparé — suppression ou méthode additive — qui sort du cadre de ce package.
+
+De même, une contribution `x1` supérieure au total produit une dominance
+$\rho > 1$ : ce n'est pas une configuration prévue par le mécanisme, et un
+avertissement invite à vérifier les entrées.
+
+## Ce que la table emporte avec elle
+
+Toute la configuration est archivée dans l'attribut `pm_meta` : paramètres,
+noms de colonnes, indicateur, réglages de hachage, version du package et date.
+
+```{r}
+meta <- attr(res, "pm_meta")
+meta$params$mechanism
+meta[c("indicator", "operation", "key_digits", "n_cells", "n_unperturbed")]
+```
+
+Cet attribut est la mémoire de la perturbation : conservez-le avec la diffusion,
+c'est lui qui permettra de rejouer ou de justifier le traitement des années plus
+tard. Attention toutefois, la plupart des verbes `dplyr` suppriment les
+attributs : extrayez `pm_meta` **avant** de retravailler la table.

@@ -1,0 +1,121 @@
+# Les paramètres
+
+```{r}
+#| include: false
+source("R/setup.R")
+```
+
+Toutes les décisions du producteur tiennent dans un objet unique, créé par
+`pm_params()`. Il se manipule comme une liste et s'affiche de façon lisible :
+
+```{r}
+params <- pm_params()
+params
+```
+
+## Deux niveaux à distinguer
+
+L'objet sépare ce qui relève d'un **choix institutionnel** de ce qui en est la
+**conséquence technique**.
+
+`params$policy` porte la politique de confidentialité, organisée par scénario
+d'attaque : `dominance` (scénario I), `prule` (scénario II) et `diff`
+(différenciation). Ce sont des conventions, arrêtées par l'institut en fonction
+de sa doctrine de diffusion, indépendamment de tout jeu de données.
+
+`params$mechanism` porte les trois paramètres du bruit — $\sigma_\nu$,
+$\sigma_\varepsilon$ et $n$ — qui découlent de cette politique par le calibrage
+(chapitre 5). Ils valent `NA` tant que la décision n'est pas prise.
+
+```{r}
+params$policy$dominance
+params$mechanism
+```
+
+## Guide de lecture : $\beta$ et $\tau$
+
+Chaque scénario est gouverné par deux nombres qu'il ne faut pas confondre. Ils
+règlent des choses différentes : $\beta$ dit **ce qui compte comme une attaque
+réussie**, $\tau$ dit **à quelle fréquence on tolère cette réussite**.
+
+### $\beta$ — la précision tolérée pour une inférence
+
+L'attaquant réussit s'il approche la contribution $X_1$ à $\pm\beta$ près. Ce
+seuil transpose directement les règles de confidentialité classiques : poser
+$\beta = 1 - k$, où $k$ est le seuil de dominance, fait de la mesure de risque
+le risque au sens de cette règle.
+
+Attention au sens de variation : un $\beta$ **plus grand** définit une réussite
+plus facile — l'attaquant a droit à une approximation plus grossière — et donne
+donc une mesure de risque plus élevée. Exiger davantage de protection, c'est
+demander un risque faible à un $\beta$ large.
+
+### $\tau$ — le plafond accepté sur ce risque
+
+La mesure de risque est une probabilité dans $[0;1]$, prise sur les tirages
+aléatoires du mécanisme, à dominance donnée. Un risque de 0,25 pour
+$\beta = 0{,}2$ se lit ainsi : *un attaquant externe n'infère $X_1$ à $\pm 20\%$
+près que dans 25 % des cas de perturbation*. Le plafond $\tau$ est la valeur
+maximale que le producteur accepte pour cette probabilité — dans le pire cas sur
+$\rho$, c'est-à-dire quelle que soit la structure de dominance des cellules
+diffusées.
+
+Plus $\tau$ est bas, plus il faut de bruit, donc plus la perte d'information est
+grande. C'est le curseur central de l'arbitrage.
+
+### Les valeurs par défaut
+
+| Scénario | Champ | $\beta$ | $\tau$ | Règle transposée |
+|---|---|---|---|---|
+| I — inférence externe | `dominance` | 0,20 | 0,50 | dominance $(1, k = 80\%)$ |
+| II — inférence interne | `prule` | 0,10 | 0,50 | règle du $p\%$ avec $p = 10$ |
+| DIFF — différenciation | `diff` | 0,05 | 0,90 | — |
+
+Le $\beta$ plus strict retenu pour la différenciation traduit une hypothèse :
+ce scénario est jugé moins probable compte tenu de la nature des données et du
+contexte de diffusion. Ces valeurs sont **conventionnelles** et dépendent du
+contexte institutionnel ; elles servent de point de départ raisonnable, pas de
+norme.
+
+Le scénario II porte un troisième réglage, `s`, qui fixe la part cumulée des
+deux plus gros contributeurs. La valeur 1 correspond au pire cas — deux
+contributeurs se partageant toute la cellule — que le mécanisme ne parvient pas
+à maîtriser à des niveaux de bruit compatibles avec une utilité acceptable. La
+valeur par défaut 0,95 correspond à la version légèrement relâchée, pour
+laquelle la protection est réelle.
+
+```{r}
+params$policy$prule
+```
+
+## Modifier la politique
+
+Tout se règle à la création de l'objet :
+
+```{r}
+params_strict <- pm_params(
+  beta_dominance = 0.2,  tau_dominance = 0.4,   # plafond de risque abaissé
+  beta_diff      = 0.05, tau_diff      = 0.85
+)
+params_strict$policy$dominance
+```
+
+## Les paramètres utilisés dans ce guide
+
+Les chapitres suivants s'appuient sur un jeu déjà calibré, dont le chapitre 5
+détaille l'obtention pas à pas.
+
+```{r}
+params <- pm_params() |>
+  pm_commit_diff() |>
+  pm_commit_dominance(sigma_nu = 0.4, n = 4)
+
+params
+```
+
+Deux choses à retenir avant de passer à l'application. L'objet est une
+**valeur** : chaque étape en renvoie une version enrichie, qu'il faut
+réaffecter, ce qui permet de conserver et de comparer plusieurs calibrages. Et
+il est **auto-suffisant** : transmis à `pm_perturb()`, il contient tout ce qu'il
+faut pour reproduire à l'identique une perturbation, et se retrouve archivé avec
+la table produite.

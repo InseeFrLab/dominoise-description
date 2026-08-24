@@ -1,0 +1,78 @@
+# Présentation {.unnumbered}
+
+```{r}
+#| include: false
+source("R/setup.R")
+```
+
+`dominoise` met en œuvre le mécanisme de perturbation décrit dans
+@jamme2026 : un bruit multiplicatif dont les mesures de risque et de perte
+d'information s'expriment sous forme analytique, ce qui fait du choix des
+paramètres une décision raisonnée plutôt qu'un réglage empirique.
+
+Ce guide est construit sur la version **`r version_dominoise`** du package.
+
+## Le mécanisme
+
+Chaque total strictement positif $Y$ est multiplié par un bruit gaussien :
+
+$$Y' = Y\,(1 + \rho^{\,n}\nu + \varepsilon), \qquad
+\nu \sim \mathcal{N}(0,\sigma_\nu^2),\quad
+\varepsilon \sim \mathcal{N}(0,\sigma_\varepsilon^2)$$
+
+où $\rho = X_1 / Y$ est la part du plus gros contributeur dans le total.
+
+La composante $\rho^{n}\nu$, **modulée par la dominance**, concentre la
+perturbation sur les cellules qu'un contributeur dominant rend sensibles : son
+poids s'efface à mesure que $\rho$ s'éloigne de 1, d'autant plus vite que $n$
+est grand. La composante $\varepsilon$ perturbe **toutes** les cellules à un
+taux relatif uniforme et porte la protection résiduelle contre la
+différenciation, où le risque n'est pas porté par un contributeur dominant.
+
+Trois paramètres — $\sigma_\nu$, $\sigma_\varepsilon$ et $n$ — gouvernent
+l'ensemble. Le total perturbé suit
+$Y' \sim \mathcal{N}\big(Y,\ Y^2(\rho^{2n}\sigma_\nu^2 + \sigma_\varepsilon^2)\big)$,
+d'où se déduisent en forme close la perte d'information et les mesures de
+risque des trois scénarios d'attaque.
+
+| Scénario | Attaquant | Règle transposée |
+|---|---|---|
+| **I** — inférence externe | attribue tout le total publié au contributeur dominant | règle de dominance (1, k) |
+| **II** — inférence interne | un contributeur retranche sa propre valeur du total | règle du p% |
+| **DIFF** — différenciation | soustrait deux totaux ne différant que par une unité | — |
+
+## Installation
+
+```{r}
+#| eval: false
+# install.packages("remotes")
+remotes::install_github("InseeFrLab/dominoise")
+```
+
+## Les données de démonstration
+
+Le guide s'appuie sur un univers simulé de 6 000 entreprises, dont on tire
+trois tableaux agrégés partageant les mêmes contributeurs : par région, par
+secteur, et croisé.
+
+```{r}
+str(tables, max.level = 2, give.attr = FALSE)
+```
+
+```{r}
+head(tables$region)
+```
+
+Chaque tableau porte les quatre colonnes attendues par le package : le total
+`ca`, la plus grosse contribution `ca_x1`, la deuxième `ca_x2` (facultative,
+pour le scénario II) et la clé de cellule `ck`, déjà ramenée dans $[0;1]$.
+
+Le script `data-raw/build_data.R` reconstruit ces tableaux à l'identique.
+
+## Plan
+
+1. **Les paramètres** — l'objet qui rassemble politique et mécanisme.
+2. **Perturber un tableau** — appliquer le bruit, mesurer risque et utilité.
+3. **Perturber plusieurs tableaux** — cohérence entre publications.
+4. **Comparer des jeux de paramètres** — a priori, sans données.
+5. **Calibrer** — les étapes, du bruit de différenciation à la dominance.

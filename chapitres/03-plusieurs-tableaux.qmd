@@ -1,0 +1,194 @@
+# Perturber plusieurs tableaux
+
+```{r}
+#| include: false
+source("R/setup.R")
+params <- pm_params() |>
+  pm_commit_diff() |>
+  pm_commit_dominance(sigma_nu = 0.4, n = 4)
+```
+
+Une diffusion réelle ne comporte jamais un seul tableau. Le chiffre d'affaires
+est publié par région, par secteur, par croisement des deux — et souvent sur
+plusieurs millésimes. Deux questions se posent alors : les perturbations
+restent-elles **cohérentes** entre publications, et comment traiter les
+tableaux **en série** ?
+
+## La même cellule reçoit toujours le même bruit
+
+C'est la propriété centrale, et elle mérite d'être vérifiée plutôt que crue.
+
+Le tirage ne dépend ni du tableau, ni de la valeur de l'agrégat, mais uniquement
+de la **clé de cellule** — laquelle ne dépend que de ses contributeurs — du nom
+de l'indicateur et de l'opération d'agrégation. Deux cellules composées des mêmes
+entreprises portent donc la même clé, et reçoivent le même bruit, où qu'elles
+soient publiées.
+
+Notre jeu de démonstration contient un cas taillé pour l'illustrer : la région
+`R12` ne compte qu'un seul secteur, `S1`. La cellule « région R12 » du premier
+tableau et la cellule « R12 × S1 » du tableau croisé rassemblent exactement les
+mêmes entreprises.
+
+```{r}
+pert_region <- pm_perturb(tables$region, "ca", "ca_x1", "ck", params,
+                          x2 = "ca_x2", indicator = "chiffre_affaires")
+
+pert_croise <- pm_perturb(tables$region_secteur, "ca", "ca_x1", "ck", params,
+                          x2 = "ca_x2", indicator = "chiffre_affaires")
+
+a <- pert_region[pert_region$region == "R12", ]
+b <- pert_croise[pert_croise$region == "R12", ]
+
+rbind(
+  data.frame(source = "région",  ck = a$ck, ca = a$ca, ca_pert = a$ca_pert),
+  data.frame(source = "croisé",  ck = b$ck, ca = b$ca, ca_pert = b$ca_pert)
+)
+```
+
+Même clé, même total, même valeur perturbée. Cette cohérence n'est pas un effet
+secondaire : c'est elle qui ferme l'**attaque par moyennage**, où un attaquant
+observant plusieurs versions bruitées d'une même valeur en retrouverait la
+valeur réelle en les moyennant.
+
+::: {.callout-important title="Ce que cette propriété exige de vous"}
+La cohérence tient à la stabilité de trois éléments : les **clés individuelles**
+(tirées une fois pour toutes), le **nom de l'indicateur** et le nom de
+l'**opération**. Renommer `chiffre_affaires` en `ca` entre deux campagnes change
+tous les tirages et rouvre l'attaque par moyennage. Ces noms relèvent d'une
+gouvernance, pas d'une convenance de code.
+:::
+
+À l'inverse, deux indicateurs distincts sur les mêmes cellules doivent recevoir
+des bruits indépendants — et c'est bien le cas, l'effet d'avalanche du hachage
+SHA-512 rendant les deux tirages sans lien apparent.
+
+```{r}
+autre <- pm_perturb(tables$region, "ca", "ca_x1", "ck", params,
+                    indicator = "effectifs")
+
+data.frame(
+  ck            = head(pert_region$ck, 4),
+  cle_ca        = head(pert_region$ck_nu, 4),
+  cle_effectifs = head(autre$ck_nu, 4)
+)
+```
+
+## Traiter une série de tableaux
+
+En pratique on dispose d'une liste de tableaux partageant le même schéma. Le
+plus simple est d'écrire une fonction de perturbation propre à la campagne, puis
+de l'appliquer à toute la liste.
+
+```{r}
+perturber <- function(tab, indicateur = "chiffre_affaires") {
+  pm_perturb(
+    tab,
+    total     = "ca",
+    x1        = "ca_x1",
+    x2        = "ca_x2",
+    ck_var    = "ck",
+    params    = params,
+    indicator = indicateur
+  )
+}
+
+tables_pert <- map(tables, perturber)
+
+map_int(tables_pert, nrow)
+```
+
+Le même objet `params` sert pour tous les tableaux : c'est ce qui garantit
+qu'une seule politique de confidentialité gouverne l'ensemble de la diffusion.
+
+Les métriques se collectent de la même façon, en empilant les résultats :
+
+```{r}
+bilan_utilite <- imap(
+  tables_pert,
+  \(x, nom) cbind(tableau = nom, assess_utility_empirical(x))
+) |>
+  list_rbind()
+
+bilan_utilite[, c("tableau", "n_cells", "mean_abs_dev",
+                  "theo_mean_abs", "max_abs_dev")]
+```
+
+```{r}
+bilan_risque <- imap(
+  tables_pert,
+  \(x, nom) cbind(tableau = nom, assess_risk_empirical(x, scenario = "I"))
+) |>
+  list_rbind()
+
+bilan_risque
+```
+
+La lecture est instructive : le tableau croisé, plus fin, comporte davantage de
+cellules fortement dominées, donc une perte moyenne plus élevée — le mécanisme
+concentre bien le bruit là où le risque se situe.
+
+## Vers une mise en production
+
+Dès que les indicateurs se multiplient, mieux vaut piloter le traitement par une
+**table de configuration** plutôt que par du code répété. Chaque ligne y décrit
+un travail à effectuer : quel tableau, quel indicateur, quelle opération.
+
+```{r}
+plan <- expand.grid(
+  tableau    = names(tables),
+  indicateur = c("chiffre_affaires", "effectifs"),
+  stringsAsFactors = FALSE
+)
+plan$operation <- "sum"
+plan
+```
+
+```{r}
+resultats <- pmap(plan, function(tableau, indicateur, operation) {
+  pm_perturb(
+    tables[[tableau]],
+    total = "ca", x1 = "ca_x1", x2 = "ca_x2", ck_var = "ck",
+    params = params, indicator = indicateur, operation = operation
+  )
+})
+names(resultats) <- paste(plan$tableau, plan$indicateur, sep = "__")
+
+names(resultats)
+```
+
+Cette forme apporte trois bénéfices en production. Le plan est **auditable** :
+on voit d'un coup d'œil ce qui a été traité, et sous quel nom d'indicateur.
+Il est **versionnable** : conservé d'une campagne à l'autre, il documente les
+conventions de nommage dont dépend la cohérence. Et il est **parallélisable** :
+`pmap()` se remplace par `furrr::future_pmap()` sans autre changement, ce qui
+compte sur des tableaux volumineux.
+
+## Archiver la trace
+
+Chaque table perturbée emporte sa configuration. Il est prudent de la collecter
+séparément avant toute manipulation, les verbes `dplyr` supprimant les attributs.
+
+```{r}
+traces <- imap(resultats, \(x, nom) {
+  m <- attr(x, "pm_meta")
+  data.frame(
+    sortie     = nom,
+    indicateur = m$indicator,
+    operation  = m$operation,
+    sigma_nu   = m$params$mechanism$sigma_nu,
+    sigma_eps  = m$params$mechanism$sigma_eps,
+    n          = m$params$mechanism$n,
+    key_digits = m$key_digits,
+    cellules   = m$n_cells,
+    non_perturbees = m$n_unperturbed
+  )
+}) |>
+  list_rbind()
+
+head(traces, 3)
+```
+
+Ce petit tableau est la pièce à archiver avec la diffusion : il contient tout ce
+qu'il faut pour reproduire la perturbation à l'identique, ou pour justifier les
+choix devant un comité — à condition, bien sûr, que les clés individuelles
+soient elles aussi conservées.

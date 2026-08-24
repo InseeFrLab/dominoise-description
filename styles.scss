@@ -1,0 +1,104 @@
+/*-- scss:defaults --*/
+// Variables Bootstrap : injectées AVANT la compilation du thème.
+
+$font-size-root:   16px;
+$body-color:       #1f2328;
+$body-bg:          #ffffff;
+
+// Bleu sobre, lisible sur fond clair et distinct du gris des sorties.
+$primary:          #2c6e9b;
+$link-color:       $primary;
+$link-hover-color: darken($primary, 12%);
+
+// Le code doit rester lisible sans dominer le texte.
+$code-color:            #b5473f;
+$code-bg:               #f6f7f9;
+$code-block-bg:         #f6f7f9;
+$code-block-border-left: $primary;
+
+$font-family-monospace: "JetBrains Mono", "Fira Mono", Consolas, monospace;
+
+// Une colonne de texte trop large fatigue : on la borne.
+$content-padding-top: 1rem;
+
+/*-- scss:rules --*/
+// Règles appliquées APRÈS la compilation du thème.
+
+// --- Corps du texte -------------------------------------------------------
+main {
+  max-width: 46rem;          // ~85 caractères par ligne
+  line-height: 1.65;
+}
+
+h2 {
+  margin-top: 2.4rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid #e8eaed;
+}
+
+h3 { margin-top: 1.8rem; }
+
+// --- Tableaux de décision -------------------------------------------------
+// Les sorties de summary() ont beaucoup de colonnes numériques : on compacte
+// et on aligne les nombres à droite pour comparer les ordres de grandeur.
+table {
+  font-size: 0.9em;
+}
+
+.table > tbody > tr > td,
+.table > thead > tr > th {
+  padding: 0.3rem 0.55rem;
+}
+
+.table td:not(:first-child) {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+// --- Code et sorties de console -------------------------------------------
+// La sortie R (préfixée #>) est grisée pour se distinguer du code saisi.
+pre code {
+  font-size: 0.86em;
+}
+
+.cell-output pre code {
+  color: #55606d;
+  background: transparent;
+}
+
+div.sourceCode {
+  border-left: 3px solid $primary;
+  border-radius: 0 4px 4px 0;
+}
+
+// --- Figures --------------------------------------------------------------
+figcaption {
+  font-size: 0.88em;
+  color: #55606d;
+  text-align: center;
+  margin-top: 0.4rem;
+}
+
+// --- Encadrés -------------------------------------------------------------
+.callout {
+  margin: 1.6rem 0;
+}
+
+.callout-important { border-left-color: #b5473f; }
+.callout-note      { border-left-color: $primary; }
+
+// --- Formules -------------------------------------------------------------
+// Les formules centrées respirent mieux avec un peu d'air.
+.math.display {
+  margin: 1.4rem 0;
+  overflow-x: auto;          // évite le débordement sur mobile
+}
+
+// --- Barre latérale -------------------------------------------------------
+#quarto-sidebar {
+  font-size: 0.94em;
+}
+
+.sidebar-item-text {
+  line-height: 1.35;
+}

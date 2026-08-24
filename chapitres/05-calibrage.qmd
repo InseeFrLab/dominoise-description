@@ -1,0 +1,206 @@
+# Calibrer la méthode {#sec-calibrage}
+
+```{r}
+#| include: false
+source("R/setup.R")
+```
+
+Le chapitre précédent comparait des candidats. Celui-ci en fait une
+**procédure** : une suite de décisions ordonnées, chacune ne dépendant que de la
+précédente. Cette structure n'est pas arbitraire — elle découle du mécanisme
+lui-même, puisque seul $\sigma_\varepsilon$ contrôle la différenciation, et que
+la plage de perte ne dépend jamais de $n$.
+
+Chaque étape suit le même triptyque : **explorer** une grille théorique,
+**visualiser** l'arbitrage, **enregistrer** la décision dans l'objet de
+paramètres.
+
+```{r}
+params <- pm_params()
+params
+```
+
+## Étape 1 — le bruit de différenciation fixe $\sigma_\varepsilon$
+
+$\sigma_\varepsilon$ est le seul paramètre capable de contenir le risque de
+différenciation. C'est aussi celui qui fixe le **plancher de perte** subi par
+toutes les cellules, y compris les moins sensibles : le minimiser revient à
+minimiser ce bruit universel.
+
+Le risque de différenciation admet une borne supérieure ne dépendant que de
+$\sigma_\varepsilon$, et cette borne s'inverse analytiquement : à $(\beta, \tau)$
+donnés, la valeur requise se calcule exactement, sans simulation.
+
+```{r}
+grille_diff <- pm_calib_diff(tau = seq(0.80, 0.95, by = 0.01))
+head(grille_diff)
+```
+
+```{r}
+#| fig-cap: "Frontière risque-utilité du scénario de différenciation."
+#| fig-alt: "Le plafond de risque accepté croît avec la perte d'information consentie, une courbe par valeur de beta."
+#| fig-height: 4
+plot(grille_diff, loss = "EZ")
+```
+
+La lecture se fait dans les deux sens : pour un plafond de risque accepté, on lit
+la perte plancher qu'il impose ; pour une perte tolérée, le risque résiduel.
+Retenons le plafond par défaut, $\tau_{\text{DIFF}} = 0{,}90$ à
+$\beta_{\text{DIFF}} = 0{,}05$.
+
+```{r}
+params <- pm_commit_diff(params, beta = 0.05, tau = 0.90)
+params$mechanism
+```
+
+Environ 3 % de bruit de fond : c'est la perturbation moyenne que subira une
+cellule sans contributeur dominant.
+
+## Étape 2 — la dominance fixe $\sigma_\nu$ et $n$
+
+$\sigma_\varepsilon$ étant figé, les deux paramètres restants se choisissent
+sur le scénario I. La contrainte porte sur deux inconnues à la fois : ce n'est
+plus une inversion, mais une **frontière**.
+
+```{r}
+grille_dom <- pm_calib_dominance(
+  params,
+  sigma_nu = seq(0.25, 0.5, by = 0.05),
+  n        = seq(1, 12, by = 0.2)
+)
+
+summary(grille_dom) |> head(6)
+```
+
+### La règle : le plus grand $n$ admissible
+
+Les deux objectifs varient de façon monotone et **opposée** en $n$. L'utilité
+s'améliore à tout $\rho < 1$, puisque le bruit se retire des cellules de
+dominance intermédiaire ; le pire risque, lui, augmente. Il n'existe donc aucun
+optimum intérieur : le meilleur choix est au bord de l'ensemble admissible.
+
+Ce raisonnement ne dépend pas des données : comme l'utilité progresse à
+**chaque** $\rho$, aucune pondération par le profil de dominance réel ne pourrait
+faire préférer un $n$ plus petit.
+
+```{r}
+frontiere <- pm_suggest_n(params, sigma_nu = seq(0.25, 0.5, by = 0.05))
+frontiere
+```
+
+Les colonnes de perte départagent les points de la frontière — tous respectent
+le plafond exactement, le choix entre eux est donc **purement un choix
+d'utilité**. Et il a deux faces : monter en $\sigma_\nu$ dégrade les
+contributeurs uniques ($\rho = 1$) mais épargne les cellules situées au seuil de
+dominance.
+
+```{r}
+#| fig-cap: "Pire risque selon n, et frontière du plus grand n admissible."
+#| fig-alt: "Courbes croissantes coupant la ligne du plafond ; les points marquent l'intersection pour chaque sigma_nu."
+pm_plot_risk_max(grille_dom, x_axis = "n",
+                 tau = params$policy$dominance$tau,
+                 mark_frontier = TRUE)
+```
+
+En dessous d'un certain $\sigma_\nu$, aucune valeur de $n$ n'est admissible : le
+niveau de bruit est structurellement insuffisant pour tenir le plafond, quelle
+que soit la forme donnée à la modulation.
+
+### Enregistrer la décision
+
+Retenons $\sigma_\nu = 0{,}4$ et le $n$ correspondant, arrondi vers le bas — le
+risque croissant avec $n$, c'est le seul arrondi conservateur.
+
+```{r}
+params <- pm_commit_dominance(params, sigma_nu = 0.4, n = 4)
+params
+```
+
+Le message restitue le compromis obtenu : le pire risque, **où** il est atteint,
+et la plage de perte du plancher au plafond. Savoir que le pic se situe au
+voisinage de $\rho \approx 0{,}8$ dit immédiatement quelles cellules sont les
+plus exposées.
+
+## Étape 3 — contrôler le scénario II
+
+Le couple retenu détermine la protection résiduelle contre l'attaque interne.
+Aucune décision ne s'y prend : c'est une **vérification**.
+
+Le pire cas, dit IIa, suppose que les deux plus gros contributeurs se partagent
+toute la cellule ($\rho + \rho_2 = 1$). La version relâchée IIb leur en laisse
+95 %.
+
+```{r}
+p <- params$mechanism
+beta_II <- params$policy$prule$beta
+
+verifier_II <- function(s) {
+  rho <- seq(s / 2, min(1, s), by = 0.001)   # rho reste le plus gros contributeur
+  data.frame(
+    cas   = if (s == 1) "IIa (pire cas)" else sprintf("IIb (s = %.2f)", s),
+    rho   = rho,
+    risk  = assess_risk_II(rho, s - rho, p$sigma_nu, p$sigma_eps, p$n, beta_II)
+  )
+}
+
+verif <- map(c(1, 0.95), verifier_II) |> list_rbind()
+
+verif |>
+  group_by(cas) |>
+  summarise(risque_max = max(risk), rho_au_max = rho[which.max(risk)])
+```
+
+```{r}
+#| fig-cap: "Risque du scénario II selon la dominance, dans le pire cas et sa version relâchée."
+#| fig-alt: "Deux courbes de risque : celle du pire cas reste élevée, celle du cas relâché redescend nettement."
+#| fig-height: 4
+ggplot(verif, aes(rho, risk, colour = cas)) +
+  geom_line(linewidth = 0.9) +
+  geom_hline(yintercept = params$policy$prule$tau,
+             linetype = "dashed", colour = "grey50") +
+  scale_y_continuous(limits = c(0, 1)) +
+  labs(x = expression(rho), y = expression(mu[II]), colour = NULL)
+```
+
+Le constat est net et il faut l'assumer : **le pire cas n'est pas maîtrisé**.
+Deux contributeurs informés se partageant l'intégralité d'une cellule ne peuvent
+pas être protégés à des niveaux de perturbation compatibles avec une utilité
+acceptable. Dès que la configuration se relâche légèrement, en revanche, le
+mécanisme offre une protection réelle — de sorte que seules les configurations
+les plus extrêmes, et sans doute les moins fréquentes, restent exposées.
+
+C'est une limite du mécanisme, à documenter dans la note méthodologique
+accompagnant la diffusion plutôt qu'à masquer.
+
+## Le résultat du calibrage
+
+```{r}
+params
+```
+
+Trois paramètres, obtenus sans aucune simulation ni recalage sur les données.
+L'objet est désormais prêt à l'emploi et suffit à lui seul pour perturber
+n'importe quel tableau de la campagne.
+
+```{r}
+res <- pm_perturb(tables$region, "ca", "ca_x1", "ck", params,
+                  x2 = "ca_x2", indicator = "chiffre_affaires")
+
+assess_utility_empirical(res)[, c("n_cells", "mean_abs_dev", "theo_mean_abs")]
+```
+
+## Ce qu'il reste à surveiller
+
+Le calibrage est analytique, mais il n'exonère pas de trois vérifications sur
+les données réelles.
+
+Les **cellules à total nul ou négatif** ne sont pas protégées par un bruit
+multiplicatif et sortent du cadre : `pm_perturb()` les laisse intactes et les
+signale.
+
+Le **scénario IIa** reste exposé, comme on vient de le voir.
+
+Enfin, la **gouvernance des clés** conditionne la cohérence dans le temps :
+stabilité des clés individuelles, du nom des indicateurs et du nom des
+opérations. Un renommage entre deux campagnes change tous les tirages et rouvre
+l'attaque par moyennage (chapitre 3).
