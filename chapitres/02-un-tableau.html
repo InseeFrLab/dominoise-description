@@ -305,15 +305,15 @@ window.Quarto = {
 </table>
 <p>Notre tableau de démonstration coche ces cases : le chiffre d’affaires régional, sa plus grosse et sa deuxième contribution, et la clé.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> tables<span class="sc">$</span>region</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> tables<span class="sc">$</span>region_secteur</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tab)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   region n_ent      ca  ca_x1  ca_x2     ck</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    R01  1819 5551319 465106 130291 0.2235</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    R02  1370 4522436 297176 145676 0.7124</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    R03   842 3608407 399105 221902 0.8598</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    R04   581 2334598 471136 436108 0.9016</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    R05   427 1345988 209603  81971 0.9810</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    R06   293 1145184 179236  63592 0.7467</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    region secteur n_ent      ca  ca_x1  ca_x2      ck</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     R01      S1   508 1566801 130291 102624 0.65728</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13    R01      S2   346  909420  85049  79619 0.64952</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 24    R01      S3   312  923495  67027  47267 0.45393</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 35    R01      S4   229 1151314 465106 116757 0.02577</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 46    R01      S5   173  414935  40404  38283 0.08863</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 57    R01      S6   130  348573  32580  27733 0.40783</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Si la colonne de clés contient la <strong>somme brute</strong> des clés individuelles plutôt que sa partie fractionnaire, il suffit de le signaler avec <code>reduce_key = TRUE</code> ; le package s’en charge. Sinon, une clé hors de <span class="math inline">\([0;1]\)</span> déclenche une erreur, plutôt qu’un bruit silencieusement aberrant.</p>
 </section>
@@ -331,20 +331,20 @@ window.Quarto = {
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(res)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   region n_ent      ca  ca_x1  ca_x2     ck     rho    rho2  ck_nu  ck_eps</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    R01  1819 5551319 465106 130291 0.2235 0.08378 0.02347 0.4400 0.40238</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    R02  1370 4522436 297176 145676 0.7124 0.06571 0.03221 0.1496 0.56578</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    R03   842 3608407 399105 221902 0.8598 0.11060 0.06150 0.2030 0.82765</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    R04   581 2334598 471136 436108 0.9016 0.20181 0.18680 0.6154 0.47234</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    R05   427 1345988 209603  81971 0.9810 0.15572 0.06090 0.6926 0.02363</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    R06   293 1145184 179236  63592 0.7467 0.15651 0.05553 0.1149 0.73769</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ca_pert</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 5516296</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 4541511</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 3695209</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 2330919</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 1278027</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 1163442</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    region secteur n_ent      ca  ca_x1  ca_x2      ck     rho    rho2   ck_nu</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     R01      S1   508 1566801 130291 102624 0.65728 0.08316 0.06550 0.47817</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13    R01      S2   346  909420  85049  79619 0.64952 0.09352 0.08755 0.01533</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 24    R01      S3   312  923495  67027  47267 0.45393 0.07258 0.05118 0.69364</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 35    R01      S4   229 1151314 465106 116757 0.02577 0.40398 0.10141 0.74377</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 46    R01      S5   173  414935  40404  38283 0.08863 0.09737 0.09226 0.29555</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 57    R01      S6   130  348573  32580  27733 0.40783 0.09347 0.07956 0.30857</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ck_eps ca_pert</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1  0.1114 1518074</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13 0.1089  880774</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 24 0.3379  913646</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 35 0.1431 1128020</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 46 0.2364  407327</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 57 0.9497  363171</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Le tableau initial est renvoyé intact, augmenté de cinq colonnes : la dominance <code>rho</code>, la part du deuxième contributeur <code>rho2</code>, les deux clés dérivées <code>ck_nu</code> et <code>ck_eps</code>, et le total perturbé <code>ca_pert</code>.</p>
 <p>L’argument <code>indicator</code> mérite une mention particulière. Il entre dans la chaîne hachée qui produit les tirages : deux indicateurs différents calculés sur les mêmes cellules reçoivent ainsi des bruits indépendants. C’est aussi lui qui garantit la reproductibilité — relancer la même commande redonne exactement les mêmes valeurs. Par défaut il vaut le nom de la colonne de total, mais mieux vaut le fixer explicitement : c’est une convention de nommage à gouverner dans la durée (chapitre 3).</p>
@@ -361,9 +361,9 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">assess_utility_empirical</span>(res)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   n_cells mean_abs_dev median_abs_dev q90_abs_dev max_abs_dev rmse_rel</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1      12        2.219          1.671       4.975       6.906    3.018</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1      89        4.116          2.108       6.225        47.8    8.236</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   theo_mean_abs pct_above_5 pct_above_10 pct_above_20</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1         2.043       16.67            0            0</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1         4.624       16.85        8.989        4.494</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>La colonne <code>theo_mean_abs</code> donne l’espérance théorique de la perte absolue, évaluée à la dominance propre de chaque cellule puis moyennée sur le tableau ; <code>mean_abs_dev</code> donne l’écart effectivement subi. Les deux doivent être proches : c’est la vérification de cohérence la plus simple à présenter à un comité du secret. Les colonnes <code>pct_above_*</code> indiquent la part des cellules dont l’écart relatif dépasse 5, 10 et 20 %.</p>
 <p>Une ventilation est possible avec <code>by</code>, par exemple par strate de publication.</p>
@@ -372,15 +372,15 @@ window.Quarto = {
 <h2 data-number="2.4" class="anchored" data-anchor-id="ce-que-le-bruit-a-protégé"><span class="header-section-number">2.4</span> Ce que le bruit a protégé</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">assess_risk_empirical</span>(res, <span class="at">scenario =</span> <span class="st">"I"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   scenario beta n_cells observed_pct  theo_mean   theo_max</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1        I  0.2      12            0 2.346e-109 2.816e-108</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   scenario beta n_cells observed_pct theo_mean theo_max</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1        I  0.2      89        2.247    0.0426   0.4613</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><code>observed_pct</code> mesure la proportion de cellules pour lesquelles l’attaque du scénario I aurait <strong>effectivement</strong> réussi sur ce tirage-ci : celles où <span class="math inline">\(|Y' - X_1| / X_1 &lt; \beta\)</span>. <code>theo_mean</code> est la probabilité théorique moyenne, et <code>theo_max</code> son maximum sur le tableau. Le taux observé est une réalisation de la probabilité garantie : les deux doivent se recouper.</p>
 <p>Le scénario II se mesure de la même façon, à condition d’avoir déclaré <code>x2</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">assess_risk_empirical</span>(res, <span class="at">scenario =</span> <span class="st">"II"</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   scenario beta n_cells observed_pct theo_mean  theo_max</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1       II  0.1      12            0 1.176e-93 1.412e-92</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   scenario beta n_cells observed_pct theo_mean theo_max</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1       II  0.1      89        5.618   0.06924   0.7427</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>La différenciation, elle, ne s’évalue pas cellule par cellule : elle porte sur des <strong>couples</strong> de cellules. Elle est contrôlée a priori par la borne du scénario DIFF, fixée au moment du calibrage (chapitre 5).</p>
 </section>
@@ -430,7 +430,7 @@ window.Quarto = {
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 9</span></span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n_cells</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 12</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 89</span></span>
 <span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n_unperturbed</span></span>
 <span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
