@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
 <meta name="author" content="Julien Jamme (INSEE)">
+
 <title>dominoise — guide d’utilisation</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -77,6 +83,7 @@ div.csl-indent {
   margin-left: 2em;
 }</style>
 
+
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -91,10 +98,11 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-40c15b938b879fa037ffe5dde0bcb7b4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-505752706b7195e732cb741052c3a2d4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5af5d9b56e597d2e30bf90d89b0adfce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-d7994a7f8e99134d309d4f7a8804827d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -120,7 +128,12 @@ div.csl-indent {
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
   }
-}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -146,11 +159,15 @@ window.Quarto = {
   typesetMath
 };
 </script>
+
 </head>
+
 <body class="nav-sidebar docked quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -161,9 +178,13 @@ window.Quarto = {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">dominoise — guide d’utilisation</a> 
         <div class="sidebar-tools-main">
@@ -178,7 +199,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Présentation</span></a>
@@ -221,26 +242,30 @@ window.Quarto = {
   </div>
 </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-<li>
-<a href="#pr%C3%A9sentation" id="toc-présentation" class="nav-link active" data-scroll-target="#pr%C3%A9sentation">Présentation</a>
+  <li><a href="#présentation" id="toc-présentation" class="nav-link active" data-scroll-target="#présentation">Présentation</a>
   <ul class="collapse">
-<li><a href="#le-m%C3%A9canisme" id="toc-le-mécanisme" class="nav-link" data-scroll-target="#le-m%C3%A9canisme">Le mécanisme</a></li>
+  <li><a href="#le-mécanisme" id="toc-le-mécanisme" class="nav-link" data-scroll-target="#le-mécanisme">Le mécanisme</a></li>
   <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
-  <li><a href="#les-donn%C3%A9es-de-d%C3%A9monstration" id="toc-les-données-de-démonstration" class="nav-link" data-scroll-target="#les-donn%C3%A9es-de-d%C3%A9monstration">Les données de démonstration</a></li>
+  <li><a href="#les-données-de-démonstration" id="toc-les-données-de-démonstration" class="nav-link" data-scroll-target="#les-données-de-démonstration">Les données de démonstration</a></li>
   <li><a href="#plan" id="toc-plan" class="nav-link" data-scroll-target="#plan">Plan</a></li>
+  </ul></li>
   </ul>
-</li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/InseeFrLab/dominoise-description/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/InseeFrLab/dominoise-description/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/InseeFrLab/dominoise-description/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/InseeFrLab/dominoise-description/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
 <h1 class="title">dominoise — guide d’utilisation</h1>
 <p class="subtitle lead">Perturber des tableaux de données de volume et arbitrer risque-utilité</p>
 </div>
@@ -268,10 +293,15 @@ window.Quarto = {
   
 
 
-</header><section id="présentation" class="level1 unnumbered"><h1 class="unnumbered">Présentation</h1>
+</header>
+
+
+<section id="présentation" class="level1 unnumbered">
+<h1 class="unnumbered">Présentation</h1>
 <p><code>dominoise</code> met en œuvre le mécanisme de perturbation décrit dans <span class="citation" data-cites="jamme2026">Jamme (<a href="chapitres/references.html#ref-jamme2026" role="doc-biblioref">2026</a>)</span> : un bruit multiplicatif dont les mesures de risque et de perte d’information s’expriment sous forme analytique, ce qui fait du choix des paramètres une décision raisonnée plutôt qu’un réglage empirique.</p>
 <p>Ce guide est construit sur la version <strong>0.1.0</strong> du package.</p>
-<section id="le-mécanisme" class="level2"><h2 class="anchored" data-anchor-id="le-mécanisme">Le mécanisme</h2>
+<section id="le-mécanisme" class="level2">
+<h2 class="anchored" data-anchor-id="le-mécanisme">Le mécanisme</h2>
 <p>Chaque total strictement positif <span class="math inline">\(Y\)</span> est multiplié par un bruit gaussien :</p>
 <p><span class="math display">\[Y' = Y\,(1 + \rho^{\,n}\nu + \varepsilon), \qquad
 \nu \sim \mathcal{N}(0,\sigma_\nu^2),\quad
@@ -285,88 +315,89 @@ window.Quarto = {
 <col style="width: 33%">
 <col style="width: 33%">
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th>Scénario</th>
 <th>Attaquant</th>
 <th>Règle transposée</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td>
-<strong>I</strong> — inférence externe</td>
+<td><strong>I</strong> — inférence externe</td>
 <td>attribue tout le total publié au contributeur dominant</td>
 <td>règle de dominance (1, k)</td>
 </tr>
 <tr class="even">
-<td>
-<strong>II</strong> — inférence interne</td>
+<td><strong>II</strong> — inférence interne</td>
 <td>un contributeur retranche sa propre valeur du total</td>
 <td>règle du p%</td>
 </tr>
 <tr class="odd">
-<td>
-<strong>DIFF</strong> — différenciation</td>
+<td><strong>DIFF</strong> — différenciation</td>
 <td>soustrait deux totaux ne différant que par une unité</td>
 <td>—</td>
 </tr>
 </tbody>
-</table></section><section id="installation" class="level2"><h2 class="anchored" data-anchor-id="installation">Installation</h2>
+</table>
+</section>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"InseeFrLab/dominoise"</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("remotes")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"InseeFrLab/dominoise"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section><section id="les-données-de-démonstration" class="level2"><h2 class="anchored" data-anchor-id="les-données-de-démonstration">Les données de démonstration</h2>
+</section>
+<section id="les-données-de-démonstration" class="level2">
+<h2 class="anchored" data-anchor-id="les-données-de-démonstration">Les données de démonstration</h2>
 <p>Le guide s’appuie sur un univers simulé de 6 000 entreprises, dont on tire trois tableaux agrégés partageant les mêmes contributeurs : par région, par secteur, et croisé.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">tables</span>, max.level <span class="op">=</span> <span class="fl">2</span>, give.attr <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; List of 3</span></span>
-<span><span class="co">#&gt;  $ region        :'data.frame':  12 obs. of  6 variables:</span></span>
-<span><span class="co">#&gt;   ..$ region: chr [1:12] "R01" "R02" "R03" "R04" ...</span></span>
-<span><span class="co">#&gt;   ..$ n_ent : int [1:12] 1819 1370 842 581 427 293 250 182 111 61 ...</span></span>
-<span><span class="co">#&gt;   ..$ ca    : num [1:12] 5551319 4522436 3608407 2334598 1345988 ...</span></span>
-<span><span class="co">#&gt;   ..$ ca_x1 : num [1:12] 465106 297176 399105 471136 209603 ...</span></span>
-<span><span class="co">#&gt;   ..$ ca_x2 : num [1:12] 130291 145676 221902 436108 81971 ...</span></span>
-<span><span class="co">#&gt;   ..$ ck    : num [1:12] 0.223 0.712 0.86 0.902 0.981 ...</span></span>
-<span><span class="co">#&gt;  $ secteur       :'data.frame':  8 obs. of  6 variables:</span></span>
-<span><span class="co">#&gt;   ..$ secteur: chr [1:8] "S1" "S2" "S3" "S4" ...</span></span>
-<span><span class="co">#&gt;   ..$ n_ent  : int [1:8] 1694 1176 971 696 583 469 304 107</span></span>
-<span><span class="co">#&gt;   ..$ ca     : num [1:8] 6044346 4713905 2998386 2409213 1912695 ...</span></span>
-<span><span class="co">#&gt;   ..$ ca_x1  : num [1:8] 471136 436108 179236 465106 120072 ...</span></span>
-<span><span class="co">#&gt;   ..$ ca_x2  : num [1:8] 297176 290154 111974 129168 114139 ...</span></span>
-<span><span class="co">#&gt;   ..$ ck     : num [1:8] 0.6163 0.7982 0.2319 0.0886 0.2342 ...</span></span>
-<span><span class="co">#&gt;  $ region_secteur:'data.frame':  89 obs. of  7 variables:</span></span>
-<span><span class="co">#&gt;   ..$ region : chr [1:89] "R01" "R01" "R01" "R01" ...</span></span>
-<span><span class="co">#&gt;   ..$ secteur: chr [1:89] "S1" "S2" "S3" "S4" ...</span></span>
-<span><span class="co">#&gt;   ..$ n_ent  : int [1:89] 508 346 312 229 173 130 97 24 378 272 ...</span></span>
-<span><span class="co">#&gt;   ..$ ca     : num [1:89] 1566801 909420 923495 1151314 414935 ...</span></span>
-<span><span class="co">#&gt;   ..$ ca_x1  : num [1:89] 130291 85049 67027 465106 40404 ...</span></span>
-<span><span class="co">#&gt;   ..$ ca_x2  : num [1:89] 102624 79619 47267 116757 38283 ...</span></span>
-<span><span class="co">#&gt;   ..$ ck     : num [1:89] 0.6573 0.6495 0.4539 0.0258 0.0886 ...</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(tables, <span class="at">max.level =</span> <span class="dv">2</span>, <span class="at">give.attr =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; List of 3</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ region        :'data.frame':  12 obs. of  6 variables:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ region: chr [1:12] "R01" "R02" "R03" "R04" ...</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ n_ent : int [1:12] 1819 1370 842 581 427 293 250 182 111 61 ...</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ ca    : num [1:12] 5551319 4522436 3608407 2334598 1345988 ...</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ ca_x1 : num [1:12] 465106 297176 399105 471136 209603 ...</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ ca_x2 : num [1:12] 130291 145676 221902 436108 81971 ...</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ ck    : num [1:12] 0.223 0.712 0.86 0.902 0.981 ...</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ secteur       :'data.frame':  8 obs. of  6 variables:</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ secteur: chr [1:8] "S1" "S2" "S3" "S4" ...</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ n_ent  : int [1:8] 1694 1176 971 696 583 469 304 107</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ ca     : num [1:8] 6044346 4713905 2998386 2409213 1912695 ...</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ ca_x1  : num [1:8] 471136 436108 179236 465106 120072 ...</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ ca_x2  : num [1:8] 297176 290154 111974 129168 114139 ...</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ ck     : num [1:8] 0.6163 0.7982 0.2319 0.0886 0.2342 ...</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ region_secteur:'data.frame':  89 obs. of  7 variables:</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ region : chr [1:89] "R01" "R01" "R01" "R01" ...</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ secteur: chr [1:89] "S1" "S2" "S3" "S4" ...</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ n_ent  : int [1:89] 508 346 312 229 173 130 97 24 378 272 ...</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ ca     : num [1:89] 1566801 909420 923495 1151314 414935 ...</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ ca_x1  : num [1:89] 130291 85049 67027 465106 40404 ...</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ ca_x2  : num [1:89] 102624 79619 47267 116757 38283 ...</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ..$ ck     : num [1:89] 0.6573 0.6495 0.4539 0.0258 0.0886 ...</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">tables</span><span class="op">$</span><span class="va">region</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   region n_ent      ca  ca_x1  ca_x2     ck</span></span>
-<span><span class="co">#&gt; 1    R01  1819 5551319 465106 130291 0.2235</span></span>
-<span><span class="co">#&gt; 2    R02  1370 4522436 297176 145676 0.7124</span></span>
-<span><span class="co">#&gt; 3    R03   842 3608407 399105 221902 0.8598</span></span>
-<span><span class="co">#&gt; 4    R04   581 2334598 471136 436108 0.9016</span></span>
-<span><span class="co">#&gt; 5    R05   427 1345988 209603  81971 0.9810</span></span>
-<span><span class="co">#&gt; 6    R06   293 1145184 179236  63592 0.7467</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tables<span class="sc">$</span>region)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   region n_ent      ca  ca_x1  ca_x2     ck</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    R01  1819 5551319 465106 130291 0.2235</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    R02  1370 4522436 297176 145676 0.7124</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    R03   842 3608407 399105 221902 0.8598</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    R04   581 2334598 471136 436108 0.9016</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    R05   427 1345988 209603  81971 0.9810</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    R06   293 1145184 179236  63592 0.7467</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Chaque tableau porte les quatre colonnes attendues par le package : le total <code>ca</code>, la plus grosse contribution <code>ca_x1</code>, la deuxième <code>ca_x2</code> (facultative, pour le scénario II) et la clé de cellule <code>ck</code>, déjà ramenée dans <span class="math inline">\([0;1]\)</span>.</p>
 <p>Le script <code>data-raw/build_data.R</code> reconstruit ces tableaux à l’identique.</p>
-</section><section id="plan" class="level2"><h2 class="anchored" data-anchor-id="plan">Plan</h2>
+</section>
+<section id="plan" class="level2">
+<h2 class="anchored" data-anchor-id="plan">Plan</h2>
 <ol type="1">
-<li>
-<strong>Les paramètres</strong> — l’objet qui rassemble politique et mécanisme.</li>
-<li>
-<strong>Perturber un tableau</strong> — appliquer le bruit, mesurer risque et utilité.</li>
-<li>
-<strong>Perturber plusieurs tableaux</strong> — cohérence entre publications.</li>
-<li>
-<strong>Comparer des jeux de paramètres</strong> — a priori, sans données.</li>
-<li>
-<strong>Calibrer</strong> — les étapes, du bruit de différenciation à la dominance.</li>
+<li><strong>Les paramètres</strong> — l’objet qui rassemble politique et mécanisme.</li>
+<li><strong>Perturber un tableau</strong> — appliquer le bruit, mesurer risque et utilité.</li>
+<li><strong>Perturber plusieurs tableaux</strong> — cohérence entre publications.</li>
+<li><strong>Comparer des jeux de paramètres</strong> — a priori, sans données.</li>
+<li><strong>Calibrer</strong> — les étapes, du bruit de différenciation à la dominance.</li>
 </ol>
 
 
@@ -375,7 +406,11 @@ window.Quarto = {
 Jamme, Julien. 2026. <span>«&nbsp;Parsimonious perturbation mechanism for magnitude tables with analytical risk-utility metrics&nbsp;»</span>. <em>Privacy in Statistical Databases</em>, Lecture Notes in Computer Science.
 </div>
 </div>
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -774,7 +809,9 @@ Jamme, Julien. 2026. <span>«&nbsp;Parsimonious perturbation mechanism for magni
       }
     }
   });
-  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
       <a href="./chapitres/01-parametres.html" class="pagination-link" aria-label="Les paramètres">
@@ -783,6 +820,7 @@ Jamme, Julien. 2026. <span>«&nbsp;Parsimonious perturbation mechanism for magni
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

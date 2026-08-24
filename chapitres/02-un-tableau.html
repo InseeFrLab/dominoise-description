@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
 <title>2&nbsp; Perturber un tableau – dominoise — guide d'utilisation</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -57,6 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
+
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -72,10 +79,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-40c15b938b879fa037ffe5dde0bcb7b4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-505752706b7195e732cb741052c3a2d4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5af5d9b56e597d2e30bf90d89b0adfce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-d7994a7f8e99134d309d4f7a8804827d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -101,7 +109,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
   }
-}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -127,11 +140,15 @@ window.Quarto = {
   typesetMath
 };
 </script>
+
 </head>
+
 <body class="nav-sidebar docked quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -142,9 +159,13 @@ window.Quarto = {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">dominoise — guide d’utilisation</a> 
         <div class="sidebar-tools-main">
@@ -159,7 +180,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Présentation</span></a>
@@ -202,27 +223,31 @@ window.Quarto = {
   </div>
 </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-<li><a href="#ce-que-le-package-attend" id="toc-ce-que-le-package-attend" class="nav-link active" data-scroll-target="#ce-que-le-package-attend"><span class="header-section-number">2.1</span> Ce que le package attend</a></li>
+  <li><a href="#ce-que-le-package-attend" id="toc-ce-que-le-package-attend" class="nav-link active" data-scroll-target="#ce-que-le-package-attend"><span class="header-section-number">2.1</span> Ce que le package attend</a></li>
   <li><a href="#appliquer-le-bruit" id="toc-appliquer-le-bruit" class="nav-link" data-scroll-target="#appliquer-le-bruit"><span class="header-section-number">2.2</span> Appliquer le bruit</a></li>
-  <li><a href="#ce-que-le-bruit-a-co%C3%BBt%C3%A9" id="toc-ce-que-le-bruit-a-coûté" class="nav-link" data-scroll-target="#ce-que-le-bruit-a-co%C3%BBt%C3%A9"><span class="header-section-number">2.3</span> Ce que le bruit a coûté</a></li>
-  <li><a href="#ce-que-le-bruit-a-prot%C3%A9g%C3%A9" id="toc-ce-que-le-bruit-a-protégé" class="nav-link" data-scroll-target="#ce-que-le-bruit-a-prot%C3%A9g%C3%A9"><span class="header-section-number">2.4</span> Ce que le bruit a protégé</a></li>
+  <li><a href="#ce-que-le-bruit-a-coûté" id="toc-ce-que-le-bruit-a-coûté" class="nav-link" data-scroll-target="#ce-que-le-bruit-a-coûté"><span class="header-section-number">2.3</span> Ce que le bruit a coûté</a></li>
+  <li><a href="#ce-que-le-bruit-a-protégé" id="toc-ce-que-le-bruit-a-protégé" class="nav-link" data-scroll-target="#ce-que-le-bruit-a-protégé"><span class="header-section-number">2.4</span> Ce que le bruit a protégé</a></li>
   <li><a href="#visualiser-limpact" id="toc-visualiser-limpact" class="nav-link" data-scroll-target="#visualiser-limpact"><span class="header-section-number">2.5</span> Visualiser l’impact</a></li>
-  <li><a href="#les-cellules-que-le-m%C3%A9canisme-ne-prot%C3%A8ge-pas" id="toc-les-cellules-que-le-mécanisme-ne-protège-pas" class="nav-link" data-scroll-target="#les-cellules-que-le-m%C3%A9canisme-ne-prot%C3%A8ge-pas"><span class="header-section-number">2.6</span> Les cellules que le mécanisme ne protège pas</a></li>
+  <li><a href="#les-cellules-que-le-mécanisme-ne-protège-pas" id="toc-les-cellules-que-le-mécanisme-ne-protège-pas" class="nav-link" data-scroll-target="#les-cellules-que-le-mécanisme-ne-protège-pas"><span class="header-section-number">2.6</span> Les cellules que le mécanisme ne protège pas</a></li>
   <li><a href="#ce-que-la-table-emporte-avec-elle" id="toc-ce-que-la-table-emporte-avec-elle" class="nav-link" data-scroll-target="#ce-que-la-table-emporte-avec-elle"><span class="header-section-number">2.7</span> Ce que la table emporte avec elle</a></li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/InseeFrLab/dominoise-description/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/InseeFrLab/dominoise-description/blob/main/chapitres/02-un-tableau.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div></nav>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/InseeFrLab/dominoise-description/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/InseeFrLab/dominoise-description/blob/main/chapitres/02-un-tableau.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">
-<span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Perturber un tableau</span>
-</h1>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Perturber un tableau</span></h1>
 </div>
 
 
@@ -236,8 +261,11 @@ window.Quarto = {
   
 
 
-</header><section id="ce-que-le-package-attend" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="ce-que-le-package-attend">
-<span class="header-section-number">2.1</span> Ce que le package attend</h2>
+</header>
+
+
+<section id="ce-que-le-package-attend" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="ce-que-le-package-attend"><span class="header-section-number">2.1</span> Ce que le package attend</h2>
 <p><code>dominoise</code> travaille sur un tableau <strong>déjà agrégé</strong>, accompagné de clés de cellule <strong>déjà agrégées</strong> elles aussi. Quatre colonnes suffisent.</p>
 <table class="caption-top table">
 <colgroup>
@@ -245,11 +273,13 @@ window.Quarto = {
 <col style="width: 33%">
 <col style="width: 33%">
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th>Colonne</th>
 <th>Obligatoire</th>
 <th>Contenu</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td><code>total</code></td>
@@ -269,139 +299,149 @@ window.Quarto = {
 <tr class="even">
 <td><code>ck_var</code></td>
 <td>oui</td>
-<td>la clé de cellule, dans <span class="math inline">\([0;1]\)</span>
-</td>
+<td>la clé de cellule, dans <span class="math inline">\([0;1]\)</span></td>
 </tr>
 </tbody>
 </table>
 <p>Notre tableau de démonstration coche ces cases : le chiffre d’affaires régional, sa plus grosse et sa deuxième contribution, et la clé.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tab</span> <span class="op">&lt;-</span> <span class="va">tables</span><span class="op">$</span><span class="va">region</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">tab</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   region n_ent      ca  ca_x1  ca_x2     ck</span></span>
-<span><span class="co">#&gt; 1    R01  1819 5551319 465106 130291 0.2235</span></span>
-<span><span class="co">#&gt; 2    R02  1370 4522436 297176 145676 0.7124</span></span>
-<span><span class="co">#&gt; 3    R03   842 3608407 399105 221902 0.8598</span></span>
-<span><span class="co">#&gt; 4    R04   581 2334598 471136 436108 0.9016</span></span>
-<span><span class="co">#&gt; 5    R05   427 1345988 209603  81971 0.9810</span></span>
-<span><span class="co">#&gt; 6    R06   293 1145184 179236  63592 0.7467</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> tables<span class="sc">$</span>region</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tab)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   region n_ent      ca  ca_x1  ca_x2     ck</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    R01  1819 5551319 465106 130291 0.2235</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    R02  1370 4522436 297176 145676 0.7124</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    R03   842 3608407 399105 221902 0.8598</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    R04   581 2334598 471136 436108 0.9016</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    R05   427 1345988 209603  81971 0.9810</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    R06   293 1145184 179236  63592 0.7467</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Si la colonne de clés contient la <strong>somme brute</strong> des clés individuelles plutôt que sa partie fractionnaire, il suffit de le signaler avec <code>reduce_key = TRUE</code> ; le package s’en charge. Sinon, une clé hors de <span class="math inline">\([0;1]\)</span> déclenche une erreur, plutôt qu’un bruit silencieusement aberrant.</p>
-</section><section id="appliquer-le-bruit" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="appliquer-le-bruit">
-<span class="header-section-number">2.2</span> Appliquer le bruit</h2>
+</section>
+<section id="appliquer-le-bruit" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="appliquer-le-bruit"><span class="header-section-number">2.2</span> Appliquer le bruit</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">pm_perturb</span><span class="op">(</span></span>
-<span>  <span class="va">tab</span>,</span>
-<span>  total     <span class="op">=</span> <span class="st">"ca"</span>,</span>
-<span>  x1        <span class="op">=</span> <span class="st">"ca_x1"</span>,</span>
-<span>  x2        <span class="op">=</span> <span class="st">"ca_x2"</span>,</span>
-<span>  ck_var    <span class="op">=</span> <span class="st">"ck"</span>,</span>
-<span>  params    <span class="op">=</span> <span class="va">params</span>,</span>
-<span>  indicator <span class="op">=</span> <span class="st">"chiffre_affaires"</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   region n_ent      ca  ca_x1  ca_x2     ck     rho    rho2  ck_nu  ck_eps</span></span>
-<span><span class="co">#&gt; 1    R01  1819 5551319 465106 130291 0.2235 0.08378 0.02347 0.4400 0.40238</span></span>
-<span><span class="co">#&gt; 2    R02  1370 4522436 297176 145676 0.7124 0.06571 0.03221 0.1496 0.56578</span></span>
-<span><span class="co">#&gt; 3    R03   842 3608407 399105 221902 0.8598 0.11060 0.06150 0.2030 0.82765</span></span>
-<span><span class="co">#&gt; 4    R04   581 2334598 471136 436108 0.9016 0.20181 0.18680 0.6154 0.47234</span></span>
-<span><span class="co">#&gt; 5    R05   427 1345988 209603  81971 0.9810 0.15572 0.06090 0.6926 0.02363</span></span>
-<span><span class="co">#&gt; 6    R06   293 1145184 179236  63592 0.7467 0.15651 0.05553 0.1149 0.73769</span></span>
-<span><span class="co">#&gt;   ca_pert</span></span>
-<span><span class="co">#&gt; 1 5516296</span></span>
-<span><span class="co">#&gt; 2 4541511</span></span>
-<span><span class="co">#&gt; 3 3695209</span></span>
-<span><span class="co">#&gt; 4 2330919</span></span>
-<span><span class="co">#&gt; 5 1278027</span></span>
-<span><span class="co">#&gt; 6 1163442</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">pm_perturb</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  tab,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">total     =</span> <span class="st">"ca"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">x1        =</span> <span class="st">"ca_x1"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">x2        =</span> <span class="st">"ca_x2"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">ck_var    =</span> <span class="st">"ck"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">params    =</span> params,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">indicator =</span> <span class="st">"chiffre_affaires"</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(res)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   region n_ent      ca  ca_x1  ca_x2     ck     rho    rho2  ck_nu  ck_eps</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    R01  1819 5551319 465106 130291 0.2235 0.08378 0.02347 0.4400 0.40238</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    R02  1370 4522436 297176 145676 0.7124 0.06571 0.03221 0.1496 0.56578</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    R03   842 3608407 399105 221902 0.8598 0.11060 0.06150 0.2030 0.82765</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    R04   581 2334598 471136 436108 0.9016 0.20181 0.18680 0.6154 0.47234</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    R05   427 1345988 209603  81971 0.9810 0.15572 0.06090 0.6926 0.02363</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    R06   293 1145184 179236  63592 0.7467 0.15651 0.05553 0.1149 0.73769</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ca_pert</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 5516296</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 4541511</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 3695209</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 2330919</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 1278027</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 1163442</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Le tableau initial est renvoyé intact, augmenté de cinq colonnes : la dominance <code>rho</code>, la part du deuxième contributeur <code>rho2</code>, les deux clés dérivées <code>ck_nu</code> et <code>ck_eps</code>, et le total perturbé <code>ca_pert</code>.</p>
 <p>L’argument <code>indicator</code> mérite une mention particulière. Il entre dans la chaîne hachée qui produit les tirages : deux indicateurs différents calculés sur les mêmes cellules reçoivent ainsi des bruits indépendants. C’est aussi lui qui garantit la reproductibilité — relancer la même commande redonne exactement les mêmes valeurs. Par défaut il vaut le nom de la colonne de total, mais mieux vaut le fixer explicitement : c’est une convention de nommage à gouverner dans la durée (chapitre 3).</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">res2</span> <span class="op">&lt;-</span> <span class="fu">pm_perturb</span><span class="op">(</span><span class="va">tab</span>, <span class="st">"ca"</span>, <span class="st">"ca_x1"</span>, <span class="st">"ck"</span>, <span class="va">params</span>,</span>
-<span>                   indicator <span class="op">=</span> <span class="st">"chiffre_affaires"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">res</span><span class="op">$</span><span class="va">ca_pert</span>, <span class="va">res2</span><span class="op">$</span><span class="va">ca_pert</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>res2 <span class="ot">&lt;-</span> <span class="fu">pm_perturb</span>(tab, <span class="st">"ca"</span>, <span class="st">"ca_x1"</span>, <span class="st">"ck"</span>, params,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">indicator =</span> <span class="st">"chiffre_affaires"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(res<span class="sc">$</span>ca_pert, res2<span class="sc">$</span>ca_pert)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section><section id="ce-que-le-bruit-a-coûté" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="ce-que-le-bruit-a-coûté">
-<span class="header-section-number">2.3</span> Ce que le bruit a coûté</h2>
+</section>
+<section id="ce-que-le-bruit-a-coûté" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="ce-que-le-bruit-a-coûté"><span class="header-section-number">2.3</span> Ce que le bruit a coûté</h2>
 <p>Le mécanisme étant analytique, on connaissait avant même de toucher aux données la perte moyenne à attendre. <code>assess_utility_empirical()</code> confronte les deux.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">assess_utility_empirical</span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   n_cells mean_abs_dev median_abs_dev q90_abs_dev max_abs_dev rmse_rel</span></span>
-<span><span class="co">#&gt; 1      12        2.219          1.671       4.975       6.906    3.018</span></span>
-<span><span class="co">#&gt;   theo_mean_abs pct_above_5 pct_above_10 pct_above_20</span></span>
-<span><span class="co">#&gt; 1         2.043       16.67            0            0</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">assess_utility_empirical</span>(res)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   n_cells mean_abs_dev median_abs_dev q90_abs_dev max_abs_dev rmse_rel</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1      12        2.219          1.671       4.975       6.906    3.018</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   theo_mean_abs pct_above_5 pct_above_10 pct_above_20</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1         2.043       16.67            0            0</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>La colonne <code>theo_mean_abs</code> donne l’espérance théorique de la perte absolue, évaluée à la dominance propre de chaque cellule puis moyennée sur le tableau ; <code>mean_abs_dev</code> donne l’écart effectivement subi. Les deux doivent être proches : c’est la vérification de cohérence la plus simple à présenter à un comité du secret. Les colonnes <code>pct_above_*</code> indiquent la part des cellules dont l’écart relatif dépasse 5, 10 et 20 %.</p>
 <p>Une ventilation est possible avec <code>by</code>, par exemple par strate de publication.</p>
-</section><section id="ce-que-le-bruit-a-protégé" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="ce-que-le-bruit-a-protégé">
-<span class="header-section-number">2.4</span> Ce que le bruit a protégé</h2>
+</section>
+<section id="ce-que-le-bruit-a-protégé" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="ce-que-le-bruit-a-protégé"><span class="header-section-number">2.4</span> Ce que le bruit a protégé</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">assess_risk_empirical</span><span class="op">(</span><span class="va">res</span>, scenario <span class="op">=</span> <span class="st">"I"</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   scenario beta n_cells observed_pct  theo_mean   theo_max</span></span>
-<span><span class="co">#&gt; 1        I  0.2      12            0 2.346e-109 2.816e-108</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">assess_risk_empirical</span>(res, <span class="at">scenario =</span> <span class="st">"I"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   scenario beta n_cells observed_pct  theo_mean   theo_max</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1        I  0.2      12            0 2.346e-109 2.816e-108</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><code>observed_pct</code> mesure la proportion de cellules pour lesquelles l’attaque du scénario I aurait <strong>effectivement</strong> réussi sur ce tirage-ci : celles où <span class="math inline">\(|Y' - X_1| / X_1 &lt; \beta\)</span>. <code>theo_mean</code> est la probabilité théorique moyenne, et <code>theo_max</code> son maximum sur le tableau. Le taux observé est une réalisation de la probabilité garantie : les deux doivent se recouper.</p>
 <p>Le scénario II se mesure de la même façon, à condition d’avoir déclaré <code>x2</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">assess_risk_empirical</span><span class="op">(</span><span class="va">res</span>, scenario <span class="op">=</span> <span class="st">"II"</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   scenario beta n_cells observed_pct theo_mean  theo_max</span></span>
-<span><span class="co">#&gt; 1       II  0.1      12            0 1.176e-93 1.412e-92</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">assess_risk_empirical</span>(res, <span class="at">scenario =</span> <span class="st">"II"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   scenario beta n_cells observed_pct theo_mean  theo_max</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1       II  0.1      12            0 1.176e-93 1.412e-92</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>La différenciation, elle, ne s’évalue pas cellule par cellule : elle porte sur des <strong>couples</strong> de cellules. Elle est contrôlée a priori par la borne du scénario DIFF, fixée au moment du calibrage (chapitre 5).</p>
-</section><section id="visualiser-limpact" class="level2" data-number="2.5"><h2 data-number="2.5" class="anchored" data-anchor-id="visualiser-limpact">
-<span class="header-section-number">2.5</span> Visualiser l’impact</h2>
+</section>
+<section id="visualiser-limpact" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="visualiser-limpact"><span class="header-section-number">2.5</span> Visualiser l’impact</h2>
 <p><code>pm_plot_impact()</code> place chaque cellule selon sa dominance et l’écart relatif qu’elle a subi, et superpose l’enveloppe théorique : la bande de confiance à 95 % et l’espérance de la perte absolue.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">pm_plot_impact</span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pm_plot_impact</span>(res)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="02-un-tableau_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" alt="Nuage de points de l'écart relatif contre rho, à l'intérieur d'une bande de confiance qui s'élargit avec la dominance." width="768"></p>
-<figcaption>Perturbation observée et enveloppe théorique, selon la dominance.</figcaption></figure>
+<figure class="figure">
+<p><img src="02-un-tableau_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" alt="Nuage de points de l'écart relatif contre rho, à l'intérieur d'une bande de confiance qui s'élargit avec la dominance." width="768"></p>
+<figcaption>Perturbation observée et enveloppe théorique, selon la dominance.</figcaption>
+</figure>
 </div>
 </div>
 </div>
 <p>Deux lectures s’en dégagent. Le nuage remplit la bande sans en déborder systématiquement, ce qui confirme l’accord entre théorie et réalisation. Et la bande <strong>s’élargit avec <span class="math inline">\(\rho\)</span></strong> : les cellules dominées, les plus sensibles, sont les plus fortement perturbées, tandis que les cellules bien réparties ne subissent que le bruit de fond <span class="math inline">\(\sigma_\varepsilon\)</span>. C’est exactement l’intention du mécanisme.</p>
-</section><section id="les-cellules-que-le-mécanisme-ne-protège-pas" class="level2" data-number="2.6"><h2 data-number="2.6" class="anchored" data-anchor-id="les-cellules-que-le-mécanisme-ne-protège-pas">
-<span class="header-section-number">2.6</span> Les cellules que le mécanisme ne protège pas</h2>
+</section>
+<section id="les-cellules-que-le-mécanisme-ne-protège-pas" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="les-cellules-que-le-mécanisme-ne-protège-pas"><span class="header-section-number">2.6</span> Les cellules que le mécanisme ne protège pas</h2>
 <p>Le bruit étant multiplicatif, il est sans effet sur les totaux nuls et quasi nuls : perturber 0 laisse 0. <code>pm_perturb()</code> laisse ces cellules inchangées et le signale par un avertissement. Elles appellent un traitement séparé — suppression ou méthode additive — qui sort du cadre de ce package.</p>
 <p>De même, une contribution <code>x1</code> supérieure au total produit une dominance <span class="math inline">\(\rho &gt; 1\)</span> : ce n’est pas une configuration prévue par le mécanisme, et un avertissement invite à vérifier les entrées.</p>
-</section><section id="ce-que-la-table-emporte-avec-elle" class="level2" data-number="2.7"><h2 data-number="2.7" class="anchored" data-anchor-id="ce-que-la-table-emporte-avec-elle">
-<span class="header-section-number">2.7</span> Ce que la table emporte avec elle</h2>
+</section>
+<section id="ce-que-la-table-emporte-avec-elle" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="ce-que-la-table-emporte-avec-elle"><span class="header-section-number">2.7</span> Ce que la table emporte avec elle</h2>
 <p>Toute la configuration est archivée dans l’attribut <code>pm_meta</code> : paramètres, noms de colonnes, indicateur, réglages de hachage, version du package et date.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">meta</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/attr.html">attr</a></span><span class="op">(</span><span class="va">res</span>, <span class="st">"pm_meta"</span><span class="op">)</span></span>
-<span><span class="va">meta</span><span class="op">$</span><span class="va">params</span><span class="op">$</span><span class="va">mechanism</span></span>
-<span><span class="co">#&gt; $sigma_nu</span></span>
-<span><span class="co">#&gt; [1] 0.4</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $sigma_eps</span></span>
-<span><span class="co">#&gt; [1] 0.02551</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $n</span></span>
-<span><span class="co">#&gt; [1] 4</span></span>
-<span><span class="va">meta</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"indicator"</span>, <span class="st">"operation"</span>, <span class="st">"key_digits"</span>, <span class="st">"n_cells"</span>, <span class="st">"n_unperturbed"</span><span class="op">)</span><span class="op">]</span></span>
-<span><span class="co">#&gt; $indicator</span></span>
-<span><span class="co">#&gt; [1] "chiffre_affaires"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $operation</span></span>
-<span><span class="co">#&gt; [1] "sum"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $key_digits</span></span>
-<span><span class="co">#&gt; [1] 9</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $n_cells</span></span>
-<span><span class="co">#&gt; [1] 12</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $n_unperturbed</span></span>
-<span><span class="co">#&gt; [1] 0</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>meta <span class="ot">&lt;-</span> <span class="fu">attr</span>(res, <span class="st">"pm_meta"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>meta<span class="sc">$</span>params<span class="sc">$</span>mechanism</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sigma_nu</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.4</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sigma_eps</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.02551</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 4</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>meta[<span class="fu">c</span>(<span class="st">"indicator"</span>, <span class="st">"operation"</span>, <span class="st">"key_digits"</span>, <span class="st">"n_cells"</span>, <span class="st">"n_unperturbed"</span>)]</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $indicator</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "chiffre_affaires"</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $operation</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "sum"</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $key_digits</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 9</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n_cells</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 12</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n_unperturbed</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Cet attribut est la mémoire de la perturbation : conservez-le avec la diffusion, c’est lui qui permettra de rejouer ou de justifier le traitement des années plus tard. Attention toutefois, la plupart des verbes <code>dplyr</code> suppriment les attributs : extrayez <code>pm_meta</code> <strong>avant</strong> de retravailler la table.</p>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -800,7 +840,9 @@ window.Quarto = {
       }
     }
   });
-  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
       <a href="../chapitres/01-parametres.html" class="pagination-link" aria-label="Les paramètres">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Les paramètres</span></span>
       </a>          
@@ -812,6 +854,7 @@ window.Quarto = {
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

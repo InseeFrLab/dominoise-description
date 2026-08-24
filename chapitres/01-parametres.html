@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
 <title>1&nbsp; Les paramètres – dominoise — guide d'utilisation</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -57,6 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
+
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -72,10 +79,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-40c15b938b879fa037ffe5dde0bcb7b4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-505752706b7195e732cb741052c3a2d4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5af5d9b56e597d2e30bf90d89b0adfce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-d7994a7f8e99134d309d4f7a8804827d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -101,7 +109,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
   }
-}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -127,11 +140,15 @@ window.Quarto = {
   typesetMath
 };
 </script>
+
 </head>
+
 <body class="nav-sidebar docked quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -142,9 +159,13 @@ window.Quarto = {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">dominoise — guide d’utilisation</a> 
         <div class="sidebar-tools-main">
@@ -159,7 +180,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Présentation</span></a>
@@ -202,31 +223,33 @@ window.Quarto = {
   </div>
 </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-<li><a href="#deux-niveaux-%C3%A0-distinguer" id="toc-deux-niveaux-à-distinguer" class="nav-link active" data-scroll-target="#deux-niveaux-%C3%A0-distinguer"><span class="header-section-number">1.1</span> Deux niveaux à distinguer</a></li>
-  <li>
-<a href="#guide-de-lecture-beta-et-tau" id="toc-guide-de-lecture-beta-et-tau" class="nav-link" data-scroll-target="#guide-de-lecture-beta-et-tau"><span class="header-section-number">1.2</span> Guide de lecture : <span class="math inline">\(\beta\)</span> et <span class="math inline">\(\tau\)</span></a>
+  <li><a href="#deux-niveaux-à-distinguer" id="toc-deux-niveaux-à-distinguer" class="nav-link active" data-scroll-target="#deux-niveaux-à-distinguer"><span class="header-section-number">1.1</span> Deux niveaux à distinguer</a></li>
+  <li><a href="#guide-de-lecture-beta-et-tau" id="toc-guide-de-lecture-beta-et-tau" class="nav-link" data-scroll-target="#guide-de-lecture-beta-et-tau"><span class="header-section-number">1.2</span> Guide de lecture : <span class="math inline">\(\beta\)</span> et <span class="math inline">\(\tau\)</span></a>
   <ul class="collapse">
-<li><a href="#beta-la-pr%C3%A9cision-tol%C3%A9r%C3%A9e-pour-une-inf%C3%A9rence" id="toc-beta-la-précision-tolérée-pour-une-inférence" class="nav-link" data-scroll-target="#beta-la-pr%C3%A9cision-tol%C3%A9r%C3%A9e-pour-une-inf%C3%A9rence"><span class="header-section-number">1.2.1</span> <span class="math inline">\(\beta\)</span> — la précision tolérée pour une inférence</a></li>
-  <li><a href="#tau-le-plafond-accept%C3%A9-sur-ce-risque" id="toc-tau-le-plafond-accepté-sur-ce-risque" class="nav-link" data-scroll-target="#tau-le-plafond-accept%C3%A9-sur-ce-risque"><span class="header-section-number">1.2.2</span> <span class="math inline">\(\tau\)</span> — le plafond accepté sur ce risque</a></li>
-  <li><a href="#les-valeurs-par-d%C3%A9faut" id="toc-les-valeurs-par-défaut" class="nav-link" data-scroll-target="#les-valeurs-par-d%C3%A9faut"><span class="header-section-number">1.2.3</span> Les valeurs par défaut</a></li>
-  </ul>
-</li>
+  <li><a href="#beta-la-précision-tolérée-pour-une-inférence" id="toc-beta-la-précision-tolérée-pour-une-inférence" class="nav-link" data-scroll-target="#beta-la-précision-tolérée-pour-une-inférence"><span class="header-section-number">1.2.1</span> <span class="math inline">\(\beta\)</span> — la précision tolérée pour une inférence</a></li>
+  <li><a href="#tau-le-plafond-accepté-sur-ce-risque" id="toc-tau-le-plafond-accepté-sur-ce-risque" class="nav-link" data-scroll-target="#tau-le-plafond-accepté-sur-ce-risque"><span class="header-section-number">1.2.2</span> <span class="math inline">\(\tau\)</span> — le plafond accepté sur ce risque</a></li>
+  <li><a href="#les-valeurs-par-défaut" id="toc-les-valeurs-par-défaut" class="nav-link" data-scroll-target="#les-valeurs-par-défaut"><span class="header-section-number">1.2.3</span> Les valeurs par défaut</a></li>
+  </ul></li>
   <li><a href="#modifier-la-politique" id="toc-modifier-la-politique" class="nav-link" data-scroll-target="#modifier-la-politique"><span class="header-section-number">1.3</span> Modifier la politique</a></li>
-  <li><a href="#les-param%C3%A8tres-utilis%C3%A9s-dans-ce-guide" id="toc-les-paramètres-utilisés-dans-ce-guide" class="nav-link" data-scroll-target="#les-param%C3%A8tres-utilis%C3%A9s-dans-ce-guide"><span class="header-section-number">1.4</span> Les paramètres utilisés dans ce guide</a></li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/InseeFrLab/dominoise-description/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/InseeFrLab/dominoise-description/blob/main/chapitres/01-parametres.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div></nav>
+  <li><a href="#les-paramètres-utilisés-dans-ce-guide" id="toc-les-paramètres-utilisés-dans-ce-guide" class="nav-link" data-scroll-target="#les-paramètres-utilisés-dans-ce-guide"><span class="header-section-number">1.4</span> Les paramètres utilisés dans ce guide</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/InseeFrLab/dominoise-description/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/InseeFrLab/dominoise-description/blob/main/chapitres/01-parametres.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">
-<span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Les paramètres</span>
-</h1>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Les paramètres</span></h1>
 </div>
 
 
@@ -240,56 +263,61 @@ window.Quarto = {
   
 
 
-</header><p>Toutes les décisions du producteur tiennent dans un objet unique, créé par <code>pm_params()</code>. Il se manipule comme une liste et s’affiche de façon lisible :</p>
+</header>
+
+
+<p>Toutes les décisions du producteur tiennent dans un objet unique, créé par <code>pm_params()</code>. Il se manipule comme une liste et s’affiche de façon lisible :</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">params</span> <span class="op">&lt;-</span> <span class="fu">pm_params</span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="va">params</span></span>
-<span><span class="co">#&gt; &lt;pm_params&gt;</span></span>
-<span><span class="co">#&gt;   policy</span></span>
-<span><span class="co">#&gt;     dominance : beta = 0.2, tau = 0.9</span></span>
-<span><span class="co">#&gt;     p%-rule   : beta = 0.1, tau = 0.9, s = 0.95</span></span>
-<span><span class="co">#&gt;     diff      : beta = 0.05, tau = 0.95</span></span>
-<span><span class="co">#&gt;   parameters of the mechanism</span></span>
-<span><span class="co">#&gt;     sigma_nu  = &lt;not set&gt;</span></span>
-<span><span class="co">#&gt;     sigma_eps = &lt;not set&gt;</span></span>
-<span><span class="co">#&gt;     n         = &lt;not set&gt;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>params <span class="ot">&lt;-</span> <span class="fu">pm_params</span>()</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>params</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;pm_params&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   policy</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     dominance : beta = 0.2, tau = 0.9</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     p%-rule   : beta = 0.1, tau = 0.9, s = 0.95</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     diff      : beta = 0.05, tau = 0.95</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   parameters of the mechanism</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     sigma_nu  = &lt;not set&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     sigma_eps = &lt;not set&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     n         = &lt;not set&gt;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="deux-niveaux-à-distinguer" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="deux-niveaux-à-distinguer">
-<span class="header-section-number">1.1</span> Deux niveaux à distinguer</h2>
+<section id="deux-niveaux-à-distinguer" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="deux-niveaux-à-distinguer"><span class="header-section-number">1.1</span> Deux niveaux à distinguer</h2>
 <p>L’objet sépare ce qui relève d’un <strong>choix institutionnel</strong> de ce qui en est la <strong>conséquence technique</strong>.</p>
 <p><code>params$policy</code> porte la politique de confidentialité, organisée par scénario d’attaque : <code>dominance</code> (scénario I), <code>prule</code> (scénario II) et <code>diff</code> (différenciation). Ce sont des conventions, arrêtées par l’institut en fonction de sa doctrine de diffusion, indépendamment de tout jeu de données.</p>
 <p><code>params$mechanism</code> porte les trois paramètres du bruit — <span class="math inline">\(\sigma_\nu\)</span>, <span class="math inline">\(\sigma_\varepsilon\)</span> et <span class="math inline">\(n\)</span> — qui découlent de cette politique par le calibrage (chapitre 5). Ils valent <code>NA</code> tant que la décision n’est pas prise.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">params</span><span class="op">$</span><span class="va">policy</span><span class="op">$</span><span class="va">dominance</span></span>
-<span><span class="co">#&gt; $beta</span></span>
-<span><span class="co">#&gt; [1] 0.2</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $tau</span></span>
-<span><span class="co">#&gt; [1] 0.9</span></span>
-<span><span class="va">params</span><span class="op">$</span><span class="va">mechanism</span></span>
-<span><span class="co">#&gt; $sigma_nu</span></span>
-<span><span class="co">#&gt; [1] NA</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $sigma_eps</span></span>
-<span><span class="co">#&gt; [1] NA</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $n</span></span>
-<span><span class="co">#&gt; [1] NA</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>params<span class="sc">$</span>policy<span class="sc">$</span>dominance</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $beta</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.2</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $tau</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.9</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>params<span class="sc">$</span>mechanism</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sigma_nu</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] NA</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sigma_eps</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] NA</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] NA</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section><section id="guide-de-lecture-beta-et-tau" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="guide-de-lecture-beta-et-tau">
-<span class="header-section-number">1.2</span> Guide de lecture : <span class="math inline">\(\beta\)</span> et <span class="math inline">\(\tau\)</span>
-</h2>
+</section>
+<section id="guide-de-lecture-beta-et-tau" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="guide-de-lecture-beta-et-tau"><span class="header-section-number">1.2</span> Guide de lecture : <span class="math inline">\(\beta\)</span> et <span class="math inline">\(\tau\)</span></h2>
 <p>Chaque scénario est gouverné par deux nombres qu’il ne faut pas confondre. Ils règlent des choses différentes : <span class="math inline">\(\beta\)</span> dit <strong>ce qui compte comme une attaque réussie</strong>, <span class="math inline">\(\tau\)</span> dit <strong>à quelle fréquence on tolère cette réussite</strong>.</p>
-<section id="beta-la-précision-tolérée-pour-une-inférence" class="level3" data-number="1.2.1"><h3 data-number="1.2.1" class="anchored" data-anchor-id="beta-la-précision-tolérée-pour-une-inférence">
-<span class="header-section-number">1.2.1</span> <span class="math inline">\(\beta\)</span> — la précision tolérée pour une inférence</h3>
+<section id="beta-la-précision-tolérée-pour-une-inférence" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="beta-la-précision-tolérée-pour-une-inférence"><span class="header-section-number">1.2.1</span> <span class="math inline">\(\beta\)</span> — la précision tolérée pour une inférence</h3>
 <p>L’attaquant réussit s’il approche la contribution <span class="math inline">\(X_1\)</span> à <span class="math inline">\(\pm\beta\)</span> près. Ce seuil transpose directement les règles de confidentialité classiques : poser <span class="math inline">\(\beta = 1 - k\)</span>, où <span class="math inline">\(k\)</span> est le seuil de dominance, fait de la mesure de risque le risque au sens de cette règle.</p>
 <p>Attention au sens de variation : un <span class="math inline">\(\beta\)</span> <strong>plus grand</strong> définit une réussite plus facile — l’attaquant a droit à une approximation plus grossière — et donne donc une mesure de risque plus élevée. Exiger davantage de protection, c’est demander un risque faible à un <span class="math inline">\(\beta\)</span> large.</p>
-</section><section id="tau-le-plafond-accepté-sur-ce-risque" class="level3" data-number="1.2.2"><h3 data-number="1.2.2" class="anchored" data-anchor-id="tau-le-plafond-accepté-sur-ce-risque">
-<span class="header-section-number">1.2.2</span> <span class="math inline">\(\tau\)</span> — le plafond accepté sur ce risque</h3>
+</section>
+<section id="tau-le-plafond-accepté-sur-ce-risque" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="tau-le-plafond-accepté-sur-ce-risque"><span class="header-section-number">1.2.2</span> <span class="math inline">\(\tau\)</span> — le plafond accepté sur ce risque</h3>
 <p>La mesure de risque est une probabilité dans <span class="math inline">\([0;1]\)</span>, prise sur les tirages aléatoires du mécanisme, à dominance donnée. Un risque de 0,25 pour <span class="math inline">\(\beta = 0{,}2\)</span> se lit ainsi : <em>un attaquant externe n’infère <span class="math inline">\(X_1\)</span> à <span class="math inline">\(\pm 20\%\)</span> près que dans 25 % des cas de perturbation</em>. Le plafond <span class="math inline">\(\tau\)</span> est la valeur maximale que le producteur accepte pour cette probabilité — dans le pire cas sur <span class="math inline">\(\rho\)</span>, c’est-à-dire quelle que soit la structure de dominance des cellules diffusées.</p>
 <p>Plus <span class="math inline">\(\tau\)</span> est bas, plus il faut de bruit, donc plus la perte d’information est grande. C’est le curseur central de l’arbitrage.</p>
-</section><section id="les-valeurs-par-défaut" class="level3" data-number="1.2.3"><h3 data-number="1.2.3" class="anchored" data-anchor-id="les-valeurs-par-défaut">
-<span class="header-section-number">1.2.3</span> Les valeurs par défaut</h3>
+</section>
+<section id="les-valeurs-par-défaut" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="les-valeurs-par-défaut"><span class="header-section-number">1.2.3</span> Les valeurs par défaut</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -298,29 +326,29 @@ window.Quarto = {
 <col style="width: 20%">
 <col style="width: 20%">
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th>Scénario</th>
 <th>Champ</th>
 <th><span class="math inline">\(\beta\)</span></th>
 <th><span class="math inline">\(\tau\)</span></th>
 <th>Règle transposée</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td>I — inférence externe</td>
 <td><code>dominance</code></td>
 <td>0,20</td>
 <td>0,50</td>
-<td>dominance <span class="math inline">\((1, k = 80\%)\)</span>
-</td>
+<td>dominance <span class="math inline">\((1, k = 80\%)\)</span></td>
 </tr>
 <tr class="even">
 <td>II — inférence interne</td>
 <td><code>prule</code></td>
 <td>0,10</td>
 <td>0,50</td>
-<td>règle du <span class="math inline">\(p\%\)</span> avec <span class="math inline">\(p = 10\)</span>
-</td>
+<td>règle du <span class="math inline">\(p\%\)</span> avec <span class="math inline">\(p = 10\)</span></td>
 </tr>
 <tr class="odd">
 <td>DIFF — différenciation</td>
@@ -334,54 +362,60 @@ window.Quarto = {
 <p>Le <span class="math inline">\(\beta\)</span> plus strict retenu pour la différenciation traduit une hypothèse : ce scénario est jugé moins probable compte tenu de la nature des données et du contexte de diffusion. Ces valeurs sont <strong>conventionnelles</strong> et dépendent du contexte institutionnel ; elles servent de point de départ raisonnable, pas de norme.</p>
 <p>Le scénario II porte un troisième réglage, <code>s</code>, qui fixe la part cumulée des deux plus gros contributeurs. La valeur 1 correspond au pire cas — deux contributeurs se partageant toute la cellule — que le mécanisme ne parvient pas à maîtriser à des niveaux de bruit compatibles avec une utilité acceptable. La valeur par défaut 0,95 correspond à la version légèrement relâchée, pour laquelle la protection est réelle.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">params</span><span class="op">$</span><span class="va">policy</span><span class="op">$</span><span class="va">prule</span></span>
-<span><span class="co">#&gt; $beta</span></span>
-<span><span class="co">#&gt; [1] 0.1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $tau</span></span>
-<span><span class="co">#&gt; [1] 0.9</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $s</span></span>
-<span><span class="co">#&gt; [1] 0.95</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>params<span class="sc">$</span>policy<span class="sc">$</span>prule</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $beta</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.1</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $tau</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.9</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $s</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.95</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section></section><section id="modifier-la-politique" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="modifier-la-politique">
-<span class="header-section-number">1.3</span> Modifier la politique</h2>
+</section>
+</section>
+<section id="modifier-la-politique" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="modifier-la-politique"><span class="header-section-number">1.3</span> Modifier la politique</h2>
 <p>Tout se règle à la création de l’objet :</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">params_strict</span> <span class="op">&lt;-</span> <span class="fu">pm_params</span><span class="op">(</span></span>
-<span>  beta_dominance <span class="op">=</span> <span class="fl">0.2</span>,  tau_dominance <span class="op">=</span> <span class="fl">0.4</span>,   <span class="co"># plafond de risque abaissé</span></span>
-<span>  beta_diff      <span class="op">=</span> <span class="fl">0.05</span>, tau_diff      <span class="op">=</span> <span class="fl">0.85</span></span>
-<span><span class="op">)</span></span>
-<span><span class="va">params_strict</span><span class="op">$</span><span class="va">policy</span><span class="op">$</span><span class="va">dominance</span></span>
-<span><span class="co">#&gt; $beta</span></span>
-<span><span class="co">#&gt; [1] 0.2</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $tau</span></span>
-<span><span class="co">#&gt; [1] 0.4</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>params_strict <span class="ot">&lt;-</span> <span class="fu">pm_params</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">beta_dominance =</span> <span class="fl">0.2</span>,  <span class="at">tau_dominance =</span> <span class="fl">0.4</span>,   <span class="co"># plafond de risque abaissé</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">beta_diff      =</span> <span class="fl">0.05</span>, <span class="at">tau_diff      =</span> <span class="fl">0.85</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>params_strict<span class="sc">$</span>policy<span class="sc">$</span>dominance</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $beta</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.2</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $tau</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.4</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section><section id="les-paramètres-utilisés-dans-ce-guide" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="les-paramètres-utilisés-dans-ce-guide">
-<span class="header-section-number">1.4</span> Les paramètres utilisés dans ce guide</h2>
+</section>
+<section id="les-paramètres-utilisés-dans-ce-guide" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="les-paramètres-utilisés-dans-ce-guide"><span class="header-section-number">1.4</span> Les paramètres utilisés dans ce guide</h2>
 <p>Les chapitres suivants s’appuient sur un jeu déjà calibré, dont le chapitre 5 détaille l’obtention pas à pas.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">params</span> <span class="op">&lt;-</span> <span class="fu">pm_params</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">pm_commit_diff</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">pm_commit_dominance</span><span class="op">(</span>sigma_nu <span class="op">=</span> <span class="fl">0.4</span>, n <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">params</span></span>
-<span><span class="co">#&gt; &lt;pm_params&gt;</span></span>
-<span><span class="co">#&gt;   policy</span></span>
-<span><span class="co">#&gt;     dominance : beta = 0.2, tau = 0.9</span></span>
-<span><span class="co">#&gt;     p%-rule   : beta = 0.1, tau = 0.9, s = 0.95</span></span>
-<span><span class="co">#&gt;     diff      : beta = 0.05, tau = 0.95</span></span>
-<span><span class="co">#&gt;   parameters of the mechanism</span></span>
-<span><span class="co">#&gt;     sigma_nu  = 0.4</span></span>
-<span><span class="co">#&gt;     sigma_eps = 0.02551</span></span>
-<span><span class="co">#&gt;     n         = 4</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>params <span class="ot">&lt;-</span> <span class="fu">pm_params</span>() <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pm_commit_diff</span>() <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pm_commit_dominance</span>(<span class="at">sigma_nu =</span> <span class="fl">0.4</span>, <span class="at">n =</span> <span class="dv">4</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>params</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;pm_params&gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   policy</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     dominance : beta = 0.2, tau = 0.9</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     p%-rule   : beta = 0.1, tau = 0.9, s = 0.95</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     diff      : beta = 0.05, tau = 0.95</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   parameters of the mechanism</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     sigma_nu  = 0.4</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     sigma_eps = 0.02551</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     n         = 4</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Deux choses à retenir avant de passer à l’application. L’objet est une <strong>valeur</strong> : chaque étape en renvoie une version enrichie, qu’il faut réaffecter, ce qui permet de conserver et de comparer plusieurs calibrages. Et il est <strong>auto-suffisant</strong> : transmis à <code>pm_perturb()</code>, il contient tout ce qu’il faut pour reproduire à l’identique une perturbation, et se retrouve archivé avec la table produite.</p>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -780,7 +814,9 @@ window.Quarto = {
       }
     }
   });
-  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
       <a href="../index.html" class="pagination-link" aria-label="Présentation">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Présentation</span>
       </a>          
@@ -792,6 +828,7 @@ window.Quarto = {
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

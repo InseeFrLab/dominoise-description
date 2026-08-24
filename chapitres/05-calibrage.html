@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
 <title>5&nbsp; Calibrer la méthode – dominoise — guide d'utilisation</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -57,6 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
+
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -72,10 +79,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-40c15b938b879fa037ffe5dde0bcb7b4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-505752706b7195e732cb741052c3a2d4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5af5d9b56e597d2e30bf90d89b0adfce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-d7994a7f8e99134d309d4f7a8804827d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -101,7 +109,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
   }
-}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -127,11 +140,15 @@ window.Quarto = {
   typesetMath
 };
 </script>
+
 </head>
+
 <body class="nav-sidebar docked quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -142,9 +159,13 @@ window.Quarto = {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">dominoise — guide d’utilisation</a> 
         <div class="sidebar-tools-main">
@@ -159,7 +180,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Présentation</span></a>
@@ -202,28 +223,32 @@ window.Quarto = {
   </div>
 </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-<li><a href="#%C3%A9tape-1-le-bruit-de-diff%C3%A9renciation-fixe-sigma_varepsilon" id="toc-étape-1-le-bruit-de-différenciation-fixe-sigma_varepsilon" class="nav-link active" data-scroll-target="#%C3%A9tape-1-le-bruit-de-diff%C3%A9renciation-fixe-sigma_varepsilon"><span class="header-section-number">5.1</span> Étape 1 — le bruit de différenciation fixe <span class="math inline">\(\sigma_\varepsilon\)</span></a></li>
-  <li>
-<a href="#%C3%A9tape-2-la-dominance-fixe-sigma_nu-et-n" id="toc-étape-2-la-dominance-fixe-sigma_nu-et-n" class="nav-link" data-scroll-target="#%C3%A9tape-2-la-dominance-fixe-sigma_nu-et-n"><span class="header-section-number">5.2</span> Étape 2 — la dominance fixe <span class="math inline">\(\sigma_\nu\)</span> et <span class="math inline">\(n\)</span></a>
+  <li><a href="#étape-1-le-bruit-de-différenciation-fixe-sigma_varepsilon" id="toc-étape-1-le-bruit-de-différenciation-fixe-sigma_varepsilon" class="nav-link active" data-scroll-target="#étape-1-le-bruit-de-différenciation-fixe-sigma_varepsilon"><span class="header-section-number">5.1</span> Étape 1 — le bruit de différenciation fixe <span class="math inline">\(\sigma_\varepsilon\)</span></a></li>
+  <li><a href="#étape-2-la-dominance-fixe-sigma_nu-et-n" id="toc-étape-2-la-dominance-fixe-sigma_nu-et-n" class="nav-link" data-scroll-target="#étape-2-la-dominance-fixe-sigma_nu-et-n"><span class="header-section-number">5.2</span> Étape 2 — la dominance fixe <span class="math inline">\(\sigma_\nu\)</span> et <span class="math inline">\(n\)</span></a>
   <ul class="collapse">
-<li><a href="#la-r%C3%A8gle-le-plus-grand-n-admissible" id="toc-la-règle-le-plus-grand-n-admissible" class="nav-link" data-scroll-target="#la-r%C3%A8gle-le-plus-grand-n-admissible"><span class="header-section-number">5.2.1</span> La règle : le plus grand <span class="math inline">\(n\)</span> admissible</a></li>
-  <li><a href="#enregistrer-la-d%C3%A9cision" id="toc-enregistrer-la-décision" class="nav-link" data-scroll-target="#enregistrer-la-d%C3%A9cision"><span class="header-section-number">5.2.2</span> Enregistrer la décision</a></li>
+  <li><a href="#la-règle-le-plus-grand-n-admissible" id="toc-la-règle-le-plus-grand-n-admissible" class="nav-link" data-scroll-target="#la-règle-le-plus-grand-n-admissible"><span class="header-section-number">5.2.1</span> La règle : le plus grand <span class="math inline">\(n\)</span> admissible</a></li>
+  <li><a href="#enregistrer-la-décision" id="toc-enregistrer-la-décision" class="nav-link" data-scroll-target="#enregistrer-la-décision"><span class="header-section-number">5.2.2</span> Enregistrer la décision</a></li>
+  </ul></li>
+  <li><a href="#étape-3-contrôler-le-scénario-ii" id="toc-étape-3-contrôler-le-scénario-ii" class="nav-link" data-scroll-target="#étape-3-contrôler-le-scénario-ii"><span class="header-section-number">5.3</span> Étape 3 — contrôler le scénario II</a></li>
+  <li><a href="#le-résultat-du-calibrage" id="toc-le-résultat-du-calibrage" class="nav-link" data-scroll-target="#le-résultat-du-calibrage"><span class="header-section-number">5.4</span> Le résultat du calibrage</a></li>
+  <li><a href="#ce-quil-reste-à-surveiller" id="toc-ce-quil-reste-à-surveiller" class="nav-link" data-scroll-target="#ce-quil-reste-à-surveiller"><span class="header-section-number">5.5</span> Ce qu’il reste à surveiller</a></li>
   </ul>
-</li>
-  <li><a href="#%C3%A9tape-3-contr%C3%B4ler-le-sc%C3%A9nario-ii" id="toc-étape-3-contrôler-le-scénario-ii" class="nav-link" data-scroll-target="#%C3%A9tape-3-contr%C3%B4ler-le-sc%C3%A9nario-ii"><span class="header-section-number">5.3</span> Étape 3 — contrôler le scénario II</a></li>
-  <li><a href="#le-r%C3%A9sultat-du-calibrage" id="toc-le-résultat-du-calibrage" class="nav-link" data-scroll-target="#le-r%C3%A9sultat-du-calibrage"><span class="header-section-number">5.4</span> Le résultat du calibrage</a></li>
-  <li><a href="#ce-quil-reste-%C3%A0-surveiller" id="toc-ce-quil-reste-à-surveiller" class="nav-link" data-scroll-target="#ce-quil-reste-%C3%A0-surveiller"><span class="header-section-number">5.5</span> Ce qu’il reste à surveiller</a></li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/InseeFrLab/dominoise-description/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/InseeFrLab/dominoise-description/blob/main/chapitres/05-calibrage.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/InseeFrLab/dominoise-description/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/InseeFrLab/dominoise-description/blob/main/chapitres/05-calibrage.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
 <h1 class="title"><span id="sec-calibrage" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Calibrer la méthode</span></span></h1>
 </div>
 
@@ -238,215 +263,231 @@ window.Quarto = {
   
 
 
-</header><p>Le chapitre précédent comparait des candidats. Celui-ci en fait une <strong>procédure</strong> : une suite de décisions ordonnées, chacune ne dépendant que de la précédente. Cette structure n’est pas arbitraire — elle découle du mécanisme lui-même, puisque seul <span class="math inline">\(\sigma_\varepsilon\)</span> contrôle la différenciation, et que la plage de perte ne dépend jamais de <span class="math inline">\(n\)</span>.</p>
+</header>
+
+
+<p>Le chapitre précédent comparait des candidats. Celui-ci en fait une <strong>procédure</strong> : une suite de décisions ordonnées, chacune ne dépendant que de la précédente. Cette structure n’est pas arbitraire — elle découle du mécanisme lui-même, puisque seul <span class="math inline">\(\sigma_\varepsilon\)</span> contrôle la différenciation, et que la plage de perte ne dépend jamais de <span class="math inline">\(n\)</span>.</p>
 <p>Chaque étape suit le même triptyque : <strong>explorer</strong> une grille théorique, <strong>visualiser</strong> l’arbitrage, <strong>enregistrer</strong> la décision dans l’objet de paramètres.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">params</span> <span class="op">&lt;-</span> <span class="fu">pm_params</span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="va">params</span></span>
-<span><span class="co">#&gt; &lt;pm_params&gt;</span></span>
-<span><span class="co">#&gt;   policy</span></span>
-<span><span class="co">#&gt;     dominance : beta = 0.2, tau = 0.9</span></span>
-<span><span class="co">#&gt;     p%-rule   : beta = 0.1, tau = 0.9, s = 0.95</span></span>
-<span><span class="co">#&gt;     diff      : beta = 0.05, tau = 0.95</span></span>
-<span><span class="co">#&gt;   parameters of the mechanism</span></span>
-<span><span class="co">#&gt;     sigma_nu  = &lt;not set&gt;</span></span>
-<span><span class="co">#&gt;     sigma_eps = &lt;not set&gt;</span></span>
-<span><span class="co">#&gt;     n         = &lt;not set&gt;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>params <span class="ot">&lt;-</span> <span class="fu">pm_params</span>()</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>params</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;pm_params&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   policy</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     dominance : beta = 0.2, tau = 0.9</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     p%-rule   : beta = 0.1, tau = 0.9, s = 0.95</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     diff      : beta = 0.05, tau = 0.95</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   parameters of the mechanism</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     sigma_nu  = &lt;not set&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     sigma_eps = &lt;not set&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     n         = &lt;not set&gt;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="étape-1-le-bruit-de-différenciation-fixe-sigma_varepsilon" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="étape-1-le-bruit-de-différenciation-fixe-sigma_varepsilon">
-<span class="header-section-number">5.1</span> Étape 1 — le bruit de différenciation fixe <span class="math inline">\(\sigma_\varepsilon\)</span>
-</h2>
+<section id="étape-1-le-bruit-de-différenciation-fixe-sigma_varepsilon" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="étape-1-le-bruit-de-différenciation-fixe-sigma_varepsilon"><span class="header-section-number">5.1</span> Étape 1 — le bruit de différenciation fixe <span class="math inline">\(\sigma_\varepsilon\)</span></h2>
 <p><span class="math inline">\(\sigma_\varepsilon\)</span> est le seul paramètre capable de contenir le risque de différenciation. C’est aussi celui qui fixe le <strong>plancher de perte</strong> subi par toutes les cellules, y compris les moins sensibles : le minimiser revient à minimiser ce bruit universel.</p>
 <p>Le risque de différenciation admet une borne supérieure ne dépendant que de <span class="math inline">\(\sigma_\varepsilon\)</span>, et cette borne s’inverse analytiquement : à <span class="math inline">\((\beta, \tau)\)</span> donnés, la valeur requise se calcule exactement, sans simulation.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">grille_diff</span> <span class="op">&lt;-</span> <span class="fu">pm_calib_diff</span><span class="op">(</span>tau <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0.80</span>, <span class="fl">0.95</span>, by <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">grille_diff</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   beta  tau sigma_eps    EZ     CI</span></span>
-<span><span class="co">#&gt; 1 0.05 0.50   0.07413 5.915 14.529</span></span>
-<span><span class="co">#&gt; 2 0.05 0.55   0.06619 5.281 12.973</span></span>
-<span><span class="co">#&gt; 3 0.05 0.60   0.05941 4.740 11.644</span></span>
-<span><span class="co">#&gt; 4 0.05 0.65   0.05350 4.269 10.486</span></span>
-<span><span class="co">#&gt; 5 0.05 0.70   0.04824 3.849  9.455</span></span>
-<span><span class="co">#&gt; 6 0.05 0.75   0.04347 3.468  8.519</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>grille_diff <span class="ot">&lt;-</span> <span class="fu">pm_calib_diff</span>(<span class="at">tau =</span> <span class="fu">seq</span>(<span class="fl">0.80</span>, <span class="fl">0.95</span>, <span class="at">by =</span> <span class="fl">0.01</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(grille_diff)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   beta  tau sigma_eps    EZ     CI</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0.05 0.50   0.07413 5.915 14.529</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 0.05 0.55   0.06619 5.281 12.973</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 0.05 0.60   0.05941 4.740 11.644</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 0.05 0.65   0.05350 4.269 10.486</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 0.05 0.70   0.04824 3.849  9.455</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 0.05 0.75   0.04347 3.468  8.519</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">grille_diff</span>, loss <span class="op">=</span> <span class="st">"EZ"</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(grille_diff, <span class="at">loss =</span> <span class="st">"EZ"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="05-calibrage_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" alt="Le plafond de risque accepté croît avec la perte d'information consentie, une courbe par valeur de beta." width="768"></p>
-<figcaption>Frontière risque-utilité du scénario de différenciation.</figcaption></figure>
+<figure class="figure">
+<p><img src="05-calibrage_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" alt="Le plafond de risque accepté croît avec la perte d'information consentie, une courbe par valeur de beta." width="768"></p>
+<figcaption>Frontière risque-utilité du scénario de différenciation.</figcaption>
+</figure>
 </div>
 </div>
 </div>
 <p>La lecture se fait dans les deux sens : pour un plafond de risque accepté, on lit la perte plancher qu’il impose ; pour une perte tolérée, le risque résiduel. Retenons le plafond par défaut, <span class="math inline">\(\tau_{\text{DIFF}} = 0{,}90\)</span> à <span class="math inline">\(\beta_{\text{DIFF}} = 0{,}05\)</span>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">params</span> <span class="op">&lt;-</span> <span class="fu">pm_commit_diff</span><span class="op">(</span><span class="va">params</span>, beta <span class="op">=</span> <span class="fl">0.05</span>, tau <span class="op">=</span> <span class="fl">0.90</span><span class="op">)</span></span>
-<span><span class="va">params</span><span class="op">$</span><span class="va">mechanism</span></span>
-<span><span class="co">#&gt; $sigma_nu</span></span>
-<span><span class="co">#&gt; [1] NA</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $sigma_eps</span></span>
-<span><span class="co">#&gt; [1] 0.0304</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $n</span></span>
-<span><span class="co">#&gt; [1] NA</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>params <span class="ot">&lt;-</span> <span class="fu">pm_commit_diff</span>(params, <span class="at">beta =</span> <span class="fl">0.05</span>, <span class="at">tau =</span> <span class="fl">0.90</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>params<span class="sc">$</span>mechanism</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sigma_nu</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] NA</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $sigma_eps</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.0304</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $n</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] NA</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Environ 3 % de bruit de fond : c’est la perturbation moyenne que subira une cellule sans contributeur dominant.</p>
-</section><section id="étape-2-la-dominance-fixe-sigma_nu-et-n" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="étape-2-la-dominance-fixe-sigma_nu-et-n">
-<span class="header-section-number">5.2</span> Étape 2 — la dominance fixe <span class="math inline">\(\sigma_\nu\)</span> et <span class="math inline">\(n\)</span>
-</h2>
+</section>
+<section id="étape-2-la-dominance-fixe-sigma_nu-et-n" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="étape-2-la-dominance-fixe-sigma_nu-et-n"><span class="header-section-number">5.2</span> Étape 2 — la dominance fixe <span class="math inline">\(\sigma_\nu\)</span> et <span class="math inline">\(n\)</span></h2>
 <p><span class="math inline">\(\sigma_\varepsilon\)</span> étant figé, les deux paramètres restants se choisissent sur le scénario I. La contrainte porte sur deux inconnues à la fois : ce n’est plus une inversion, mais une <strong>frontière</strong>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">grille_dom</span> <span class="op">&lt;-</span> <span class="fu">pm_calib_dominance</span><span class="op">(</span></span>
-<span>  <span class="va">params</span>,</span>
-<span>  sigma_nu <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0.5</span>, by <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span>,</span>
-<span>  n        <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">12</span>, by <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">grille_dom</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">6</span><span class="op">)</span></span>
-<span><span class="co">#&gt;  sigma_nu sigma_eps   n beta rho_at_max_risk risk_max EZ_min EZ_max CI_min</span></span>
-<span><span class="co">#&gt;      0.25      0.03 1.0  0.2            1.00    0.573  2.458  20.09  6.038</span></span>
-<span><span class="co">#&gt;      0.25      0.03 1.2  0.2            0.98    0.573  2.432  20.09  5.975</span></span>
-<span><span class="co">#&gt;      0.25      0.03 1.4  0.2            0.98    0.575  2.427  20.09  5.961</span></span>
-<span><span class="co">#&gt;      0.25      0.03 1.6  0.2            0.96    0.577  2.426  20.09  5.959</span></span>
-<span><span class="co">#&gt;      0.25      0.03 1.8  0.2            0.96    0.581  2.425  20.09  5.958</span></span>
-<span><span class="co">#&gt;      0.25      0.03 2.0  0.2            0.96    0.584  2.425  20.09  5.958</span></span>
-<span><span class="co">#&gt;  CI_max</span></span>
-<span><span class="co">#&gt;   49.36</span></span>
-<span><span class="co">#&gt;   49.36</span></span>
-<span><span class="co">#&gt;   49.36</span></span>
-<span><span class="co">#&gt;   49.36</span></span>
-<span><span class="co">#&gt;   49.36</span></span>
-<span><span class="co">#&gt;   49.36</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>grille_dom <span class="ot">&lt;-</span> <span class="fu">pm_calib_dominance</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  params,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">sigma_nu =</span> <span class="fu">seq</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="at">by =</span> <span class="fl">0.05</span>),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n        =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">12</span>, <span class="at">by =</span> <span class="fl">0.2</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(grille_dom) <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="dv">6</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  sigma_nu sigma_eps   n beta rho_at_max_risk risk_max EZ_min EZ_max CI_min</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      0.25      0.03 1.0  0.2            1.00    0.573  2.458  20.09  6.038</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      0.25      0.03 1.2  0.2            0.98    0.573  2.432  20.09  5.975</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      0.25      0.03 1.4  0.2            0.98    0.575  2.427  20.09  5.961</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      0.25      0.03 1.6  0.2            0.96    0.577  2.426  20.09  5.959</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      0.25      0.03 1.8  0.2            0.96    0.581  2.425  20.09  5.958</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      0.25      0.03 2.0  0.2            0.96    0.584  2.425  20.09  5.958</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  CI_max</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   49.36</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   49.36</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   49.36</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   49.36</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   49.36</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   49.36</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="la-règle-le-plus-grand-n-admissible" class="level3" data-number="5.2.1"><h3 data-number="5.2.1" class="anchored" data-anchor-id="la-règle-le-plus-grand-n-admissible">
-<span class="header-section-number">5.2.1</span> La règle : le plus grand <span class="math inline">\(n\)</span> admissible</h3>
+<section id="la-règle-le-plus-grand-n-admissible" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="la-règle-le-plus-grand-n-admissible"><span class="header-section-number">5.2.1</span> La règle : le plus grand <span class="math inline">\(n\)</span> admissible</h3>
 <p>Les deux objectifs varient de façon monotone et <strong>opposée</strong> en <span class="math inline">\(n\)</span>. L’utilité s’améliore à tout <span class="math inline">\(\rho &lt; 1\)</span>, puisque le bruit se retire des cellules de dominance intermédiaire ; le pire risque, lui, augmente. Il n’existe donc aucun optimum intérieur : le meilleur choix est au bord de l’ensemble admissible.</p>
 <p>Ce raisonnement ne dépend pas des données : comme l’utilité progresse à <strong>chaque</strong> <span class="math inline">\(\rho\)</span>, aucune pondération par le profil de dominance réel ne pourrait faire préférer un <span class="math inline">\(n\)</span> plus petit.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">frontiere</span> <span class="op">&lt;-</span> <span class="fu">pm_suggest_n</span><span class="op">(</span><span class="va">params</span>, sigma_nu <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0.5</span>, by <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">frontiere</span></span>
-<span><span class="co">#&gt;   sigma_nu sigma_eps beta tau target n_max risk_at_n_max EZ_rho1 EZ_rho_dom</span></span>
-<span><span class="co">#&gt; 1     0.25    0.0304  0.2 0.9    0.9 14.28           0.9   20.09      2.561</span></span>
-<span><span class="co">#&gt; 2     0.30    0.0304  0.2 0.9    0.9 16.15           0.9   24.06      2.511</span></span>
-<span><span class="co">#&gt; 3     0.35    0.0304  0.2 0.9    0.9 17.65           0.9   28.03      2.486</span></span>
-<span><span class="co">#&gt; 4     0.40    0.0304  0.2 0.9    0.9 18.90           0.9   32.01      2.471</span></span>
-<span><span class="co">#&gt; 5     0.45    0.0304  0.2 0.9    0.9 19.97           0.9   35.99      2.461</span></span>
-<span><span class="co">#&gt; 6     0.50    0.0304  0.2 0.9    0.9 20.92           0.9   39.97      2.454</span></span>
-<span><span class="co">#&gt;   CI_rho1 CI_rho_dom</span></span>
-<span><span class="co">#&gt; 1   49.36      6.292</span></span>
-<span><span class="co">#&gt; 2   59.10      6.169</span></span>
-<span><span class="co">#&gt; 3   68.86      6.106</span></span>
-<span><span class="co">#&gt; 4   78.62      6.069</span></span>
-<span><span class="co">#&gt; 5   88.40      6.045</span></span>
-<span><span class="co">#&gt; 6   98.18      6.029</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>frontiere <span class="ot">&lt;-</span> <span class="fu">pm_suggest_n</span>(params, <span class="at">sigma_nu =</span> <span class="fu">seq</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="at">by =</span> <span class="fl">0.05</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>frontiere</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   sigma_nu sigma_eps beta tau target n_max risk_at_n_max EZ_rho1 EZ_rho_dom</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     0.25    0.0304  0.2 0.9    0.9 14.28           0.9   20.09      2.561</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2     0.30    0.0304  0.2 0.9    0.9 16.15           0.9   24.06      2.511</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3     0.35    0.0304  0.2 0.9    0.9 17.65           0.9   28.03      2.486</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4     0.40    0.0304  0.2 0.9    0.9 18.90           0.9   32.01      2.471</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5     0.45    0.0304  0.2 0.9    0.9 19.97           0.9   35.99      2.461</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6     0.50    0.0304  0.2 0.9    0.9 20.92           0.9   39.97      2.454</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   CI_rho1 CI_rho_dom</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   49.36      6.292</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   59.10      6.169</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   68.86      6.106</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4   78.62      6.069</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5   88.40      6.045</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6   98.18      6.029</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Les colonnes de perte départagent les points de la frontière — tous respectent le plafond exactement, le choix entre eux est donc <strong>purement un choix d’utilité</strong>. Et il a deux faces : monter en <span class="math inline">\(\sigma_\nu\)</span> dégrade les contributeurs uniques (<span class="math inline">\(\rho = 1\)</span>) mais épargne les cellules situées au seuil de dominance.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">pm_plot_risk_max</span><span class="op">(</span><span class="va">grille_dom</span>, x_axis <span class="op">=</span> <span class="st">"n"</span>,</span>
-<span>                 tau <span class="op">=</span> <span class="va">params</span><span class="op">$</span><span class="va">policy</span><span class="op">$</span><span class="va">dominance</span><span class="op">$</span><span class="va">tau</span>,</span>
-<span>                 mark_frontier <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pm_plot_risk_max</span>(grille_dom, <span class="at">x_axis =</span> <span class="st">"n"</span>,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">tau =</span> params<span class="sc">$</span>policy<span class="sc">$</span>dominance<span class="sc">$</span>tau,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">mark_frontier =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="05-calibrage_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" alt="Courbes croissantes coupant la ligne du plafond ; les points marquent l'intersection pour chaque sigma_nu." width="768"></p>
-<figcaption>Pire risque selon n, et frontière du plus grand n admissible.</figcaption></figure>
+<figure class="figure">
+<p><img src="05-calibrage_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" alt="Courbes croissantes coupant la ligne du plafond ; les points marquent l'intersection pour chaque sigma_nu." width="768"></p>
+<figcaption>Pire risque selon n, et frontière du plus grand n admissible.</figcaption>
+</figure>
 </div>
 </div>
 </div>
 <p>En dessous d’un certain <span class="math inline">\(\sigma_\nu\)</span>, aucune valeur de <span class="math inline">\(n\)</span> n’est admissible : le niveau de bruit est structurellement insuffisant pour tenir le plafond, quelle que soit la forme donnée à la modulation.</p>
-</section><section id="enregistrer-la-décision" class="level3" data-number="5.2.2"><h3 data-number="5.2.2" class="anchored" data-anchor-id="enregistrer-la-décision">
-<span class="header-section-number">5.2.2</span> Enregistrer la décision</h3>
+</section>
+<section id="enregistrer-la-décision" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="enregistrer-la-décision"><span class="header-section-number">5.2.2</span> Enregistrer la décision</h3>
 <p>Retenons <span class="math inline">\(\sigma_\nu = 0{,}4\)</span> et le <span class="math inline">\(n\)</span> correspondant, arrondi vers le bas — le risque croissant avec <span class="math inline">\(n\)</span>, c’est le seul arrondi conservateur.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">params</span> <span class="op">&lt;-</span> <span class="fu">pm_commit_dominance</span><span class="op">(</span><span class="va">params</span>, sigma_nu <span class="op">=</span> <span class="fl">0.4</span>, n <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="va">params</span></span>
-<span><span class="co">#&gt; &lt;pm_params&gt;</span></span>
-<span><span class="co">#&gt;   policy</span></span>
-<span><span class="co">#&gt;     dominance : beta = 0.2, tau = 0.9</span></span>
-<span><span class="co">#&gt;     p%-rule   : beta = 0.1, tau = 0.9, s = 0.95</span></span>
-<span><span class="co">#&gt;     diff      : beta = 0.05, tau = 0.9</span></span>
-<span><span class="co">#&gt;   parameters of the mechanism</span></span>
-<span><span class="co">#&gt;     sigma_nu  = 0.4</span></span>
-<span><span class="co">#&gt;     sigma_eps = 0.0304</span></span>
-<span><span class="co">#&gt;     n         = 4</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>params <span class="ot">&lt;-</span> <span class="fu">pm_commit_dominance</span>(params, <span class="at">sigma_nu =</span> <span class="fl">0.4</span>, <span class="at">n =</span> <span class="dv">4</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>params</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;pm_params&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   policy</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     dominance : beta = 0.2, tau = 0.9</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     p%-rule   : beta = 0.1, tau = 0.9, s = 0.95</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     diff      : beta = 0.05, tau = 0.9</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   parameters of the mechanism</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     sigma_nu  = 0.4</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     sigma_eps = 0.0304</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     n         = 4</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Le message restitue le compromis obtenu : le pire risque, <strong>où</strong> il est atteint, et la plage de perte du plancher au plafond. Savoir que le pic se situe au voisinage de <span class="math inline">\(\rho \approx 0{,}8\)</span> dit immédiatement quelles cellules sont les plus exposées.</p>
-</section></section><section id="étape-3-contrôler-le-scénario-ii" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="étape-3-contrôler-le-scénario-ii">
-<span class="header-section-number">5.3</span> Étape 3 — contrôler le scénario II</h2>
+</section>
+</section>
+<section id="étape-3-contrôler-le-scénario-ii" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="étape-3-contrôler-le-scénario-ii"><span class="header-section-number">5.3</span> Étape 3 — contrôler le scénario II</h2>
 <p>Le couple retenu détermine la protection résiduelle contre l’attaque interne. Aucune décision ne s’y prend : c’est une <strong>vérification</strong>.</p>
 <p>Le pire cas, dit IIa, suppose que les deux plus gros contributeurs se partagent toute la cellule (<span class="math inline">\(\rho + \rho_2 = 1\)</span>). La version relâchée IIb leur en laisse 95 %.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">params</span><span class="op">$</span><span class="va">mechanism</span></span>
-<span><span class="va">beta_II</span> <span class="op">&lt;-</span> <span class="va">params</span><span class="op">$</span><span class="va">policy</span><span class="op">$</span><span class="va">prule</span><span class="op">$</span><span class="va">beta</span></span>
-<span></span>
-<span><span class="va">verifier_II</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">s</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">rho</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="va">s</span> <span class="op">/</span> <span class="fl">2</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">s</span><span class="op">)</span>, by <span class="op">=</span> <span class="fl">0.001</span><span class="op">)</span>   <span class="co"># rho reste le plus gros contributeur</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
-<span>    cas   <span class="op">=</span> <span class="kw">if</span> <span class="op">(</span><span class="va">s</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="st">"IIa (pire cas)"</span> <span class="kw">else</span> <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"IIb (s = %.2f)"</span>, <span class="va">s</span><span class="op">)</span>,</span>
-<span>    rho   <span class="op">=</span> <span class="va">rho</span>,</span>
-<span>    risk  <span class="op">=</span> <span class="fu">assess_risk_II</span><span class="op">(</span><span class="va">rho</span>, <span class="va">s</span> <span class="op">-</span> <span class="va">rho</span>, <span class="va">p</span><span class="op">$</span><span class="va">sigma_nu</span>, <span class="va">p</span><span class="op">$</span><span class="va">sigma_eps</span>, <span class="va">p</span><span class="op">$</span><span class="va">n</span>, <span class="va">beta_II</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="va">verif</span> <span class="op">&lt;-</span> <span class="fu">map</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0.95</span><span class="op">)</span>, <span class="va">verifier_II</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">list_rbind</span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">verif</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">cas</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">summarise</span><span class="op">(</span>risque_max <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">risk</span><span class="op">)</span>, rho_au_max <span class="op">=</span> <span class="va">rho</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">risk</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 2 × 3</span></span>
-<span><span class="co">#&gt;   cas            risque_max rho_au_max</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;               &lt;dbl&gt;      &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 IIa (pire cas)     0.7961      0.5  </span></span>
-<span><span class="co">#&gt; 2 IIb (s = 0.95)     0.5345      0.582</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> params<span class="sc">$</span>mechanism</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>beta_II <span class="ot">&lt;-</span> params<span class="sc">$</span>policy<span class="sc">$</span>prule<span class="sc">$</span>beta</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>verifier_II <span class="ot">&lt;-</span> <span class="cf">function</span>(s) {</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  rho <span class="ot">&lt;-</span> <span class="fu">seq</span>(s <span class="sc">/</span> <span class="dv">2</span>, <span class="fu">min</span>(<span class="dv">1</span>, s), <span class="at">by =</span> <span class="fl">0.001</span>)   <span class="co"># rho reste le plus gros contributeur</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">cas   =</span> <span class="cf">if</span> (s <span class="sc">==</span> <span class="dv">1</span>) <span class="st">"IIa (pire cas)"</span> <span class="cf">else</span> <span class="fu">sprintf</span>(<span class="st">"IIb (s = %.2f)"</span>, s),</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">rho   =</span> rho,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">risk  =</span> <span class="fu">assess_risk_II</span>(rho, s <span class="sc">-</span> rho, p<span class="sc">$</span>sigma_nu, p<span class="sc">$</span>sigma_eps, p<span class="sc">$</span>n, beta_II)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>verif <span class="ot">&lt;-</span> <span class="fu">map</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.95</span>), verifier_II) <span class="sc">|&gt;</span> <span class="fu">list_rbind</span>()</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>verif <span class="sc">|&gt;</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cas) <span class="sc">|&gt;</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">risque_max =</span> <span class="fu">max</span>(risk), <span class="at">rho_au_max =</span> rho[<span class="fu">which.max</span>(risk)])</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 × 3</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   cas            risque_max rho_au_max</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;               &lt;dbl&gt;      &lt;dbl&gt;</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 IIa (pire cas)     0.7961      0.5  </span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 IIb (s = 0.95)     0.5345      0.582</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">verif</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">rho</span>, <span class="va">risk</span>, colour <span class="op">=</span> <span class="va">cas</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_line</span><span class="op">(</span>linewidth <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_hline</span><span class="op">(</span>yintercept <span class="op">=</span> <span class="va">params</span><span class="op">$</span><span class="va">policy</span><span class="op">$</span><span class="va">prule</span><span class="op">$</span><span class="va">tau</span>,</span>
-<span>             linetype <span class="op">=</span> <span class="st">"dashed"</span>, colour <span class="op">=</span> <span class="st">"grey50"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">scale_y_continuous</span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">rho</span><span class="op">)</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">mu</span><span class="op">[</span><span class="va">II</span><span class="op">]</span><span class="op">)</span>, colour <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(verif, <span class="fu">aes</span>(rho, risk, <span class="at">colour =</span> cas)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> params<span class="sc">$</span>policy<span class="sc">$</span>prule<span class="sc">$</span>tau,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">colour =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(rho), <span class="at">y =</span> <span class="fu">expression</span>(mu[II]), <span class="at">colour =</span> <span class="cn">NULL</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="05-calibrage_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" alt="Deux courbes de risque : celle du pire cas reste élevée, celle du cas relâché redescend nettement." width="768"></p>
-<figcaption>Risque du scénario II selon la dominance, dans le pire cas et sa version relâchée.</figcaption></figure>
+<figure class="figure">
+<p><img src="05-calibrage_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" alt="Deux courbes de risque : celle du pire cas reste élevée, celle du cas relâché redescend nettement." width="768"></p>
+<figcaption>Risque du scénario II selon la dominance, dans le pire cas et sa version relâchée.</figcaption>
+</figure>
 </div>
 </div>
 </div>
 <p>Le constat est net et il faut l’assumer : <strong>le pire cas n’est pas maîtrisé</strong>. Deux contributeurs informés se partageant l’intégralité d’une cellule ne peuvent pas être protégés à des niveaux de perturbation compatibles avec une utilité acceptable. Dès que la configuration se relâche légèrement, en revanche, le mécanisme offre une protection réelle — de sorte que seules les configurations les plus extrêmes, et sans doute les moins fréquentes, restent exposées.</p>
 <p>C’est une limite du mécanisme, à documenter dans la note méthodologique accompagnant la diffusion plutôt qu’à masquer.</p>
-</section><section id="le-résultat-du-calibrage" class="level2" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="le-résultat-du-calibrage">
-<span class="header-section-number">5.4</span> Le résultat du calibrage</h2>
+</section>
+<section id="le-résultat-du-calibrage" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="le-résultat-du-calibrage"><span class="header-section-number">5.4</span> Le résultat du calibrage</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">params</span></span>
-<span><span class="co">#&gt; &lt;pm_params&gt;</span></span>
-<span><span class="co">#&gt;   policy</span></span>
-<span><span class="co">#&gt;     dominance : beta = 0.2, tau = 0.9</span></span>
-<span><span class="co">#&gt;     p%-rule   : beta = 0.1, tau = 0.9, s = 0.95</span></span>
-<span><span class="co">#&gt;     diff      : beta = 0.05, tau = 0.9</span></span>
-<span><span class="co">#&gt;   parameters of the mechanism</span></span>
-<span><span class="co">#&gt;     sigma_nu  = 0.4</span></span>
-<span><span class="co">#&gt;     sigma_eps = 0.0304</span></span>
-<span><span class="co">#&gt;     n         = 4</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>params</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;pm_params&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   policy</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     dominance : beta = 0.2, tau = 0.9</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     p%-rule   : beta = 0.1, tau = 0.9, s = 0.95</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     diff      : beta = 0.05, tau = 0.9</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   parameters of the mechanism</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     sigma_nu  = 0.4</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     sigma_eps = 0.0304</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     n         = 4</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Trois paramètres, obtenus sans aucune simulation ni recalage sur les données. L’objet est désormais prêt à l’emploi et suffit à lui seul pour perturber n’importe quel tableau de la campagne.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">pm_perturb</span><span class="op">(</span><span class="va">tables</span><span class="op">$</span><span class="va">region</span>, <span class="st">"ca"</span>, <span class="st">"ca_x1"</span>, <span class="st">"ck"</span>, <span class="va">params</span>,</span>
-<span>                  x2 <span class="op">=</span> <span class="st">"ca_x2"</span>, indicator <span class="op">=</span> <span class="st">"chiffre_affaires"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">assess_utility_empirical</span><span class="op">(</span><span class="va">res</span><span class="op">)</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"n_cells"</span>, <span class="st">"mean_abs_dev"</span>, <span class="st">"theo_mean_abs"</span><span class="op">)</span><span class="op">]</span></span>
-<span><span class="co">#&gt;   n_cells mean_abs_dev theo_mean_abs</span></span>
-<span><span class="co">#&gt; 1      12        2.638         2.432</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">pm_perturb</span>(tables<span class="sc">$</span>region, <span class="st">"ca"</span>, <span class="st">"ca_x1"</span>, <span class="st">"ck"</span>, params,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">x2 =</span> <span class="st">"ca_x2"</span>, <span class="at">indicator =</span> <span class="st">"chiffre_affaires"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">assess_utility_empirical</span>(res)[, <span class="fu">c</span>(<span class="st">"n_cells"</span>, <span class="st">"mean_abs_dev"</span>, <span class="st">"theo_mean_abs"</span>)]</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   n_cells mean_abs_dev theo_mean_abs</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1      12        2.638         2.432</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section><section id="ce-quil-reste-à-surveiller" class="level2" data-number="5.5"><h2 data-number="5.5" class="anchored" data-anchor-id="ce-quil-reste-à-surveiller">
-<span class="header-section-number">5.5</span> Ce qu’il reste à surveiller</h2>
+</section>
+<section id="ce-quil-reste-à-surveiller" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="ce-quil-reste-à-surveiller"><span class="header-section-number">5.5</span> Ce qu’il reste à surveiller</h2>
 <p>Le calibrage est analytique, mais il n’exonère pas de trois vérifications sur les données réelles.</p>
 <p>Les <strong>cellules à total nul ou négatif</strong> ne sont pas protégées par un bruit multiplicatif et sortent du cadre : <code>pm_perturb()</code> les laisse intactes et les signale.</p>
 <p>Le <strong>scénario IIa</strong> reste exposé, comme on vient de le voir.</p>
 <p>Enfin, la <strong>gouvernance des clés</strong> conditionne la cohérence dans le temps : stabilité des clés individuelles, du nom des indicateurs et du nom des opérations. Un renommage entre deux campagnes change tous les tirages et rouvre l’attaque par moyennage (chapitre 3).</p>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -845,7 +886,9 @@ window.Quarto = {
       }
     }
   });
-  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
       <a href="../chapitres/04-comparer-parametres.html" class="pagination-link" aria-label="Comparer des jeux de paramètres">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Comparer des jeux de paramètres</span></span>
       </a>          
@@ -857,6 +900,7 @@ window.Quarto = {
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

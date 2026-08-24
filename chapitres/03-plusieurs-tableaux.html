@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
 <title>3&nbsp; Perturber plusieurs tableaux – dominoise — guide d'utilisation</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -57,6 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
+
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -72,10 +79,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-40c15b938b879fa037ffe5dde0bcb7b4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-505752706b7195e732cb741052c3a2d4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5af5d9b56e597d2e30bf90d89b0adfce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-d7994a7f8e99134d309d4f7a8804827d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -102,11 +110,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Recherche"
   }
 }</script>
+
+
 </head>
+
 <body class="nav-sidebar docked quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -117,9 +130,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">dominoise — guide d’utilisation</a> 
         <div class="sidebar-tools-main">
@@ -134,7 +151,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Présentation</span></a>
@@ -177,24 +194,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-<li><a href="#la-m%C3%AAme-cellule-re%C3%A7oit-toujours-le-m%C3%AAme-bruit" id="toc-la-même-cellule-reçoit-toujours-le-même-bruit" class="nav-link active" data-scroll-target="#la-m%C3%AAme-cellule-re%C3%A7oit-toujours-le-m%C3%AAme-bruit"><span class="header-section-number">3.1</span> La même cellule reçoit toujours le même bruit</a></li>
-  <li><a href="#traiter-une-s%C3%A9rie-de-tableaux" id="toc-traiter-une-série-de-tableaux" class="nav-link" data-scroll-target="#traiter-une-s%C3%A9rie-de-tableaux"><span class="header-section-number">3.2</span> Traiter une série de tableaux</a></li>
+  <li><a href="#la-même-cellule-reçoit-toujours-le-même-bruit" id="toc-la-même-cellule-reçoit-toujours-le-même-bruit" class="nav-link active" data-scroll-target="#la-même-cellule-reçoit-toujours-le-même-bruit"><span class="header-section-number">3.1</span> La même cellule reçoit toujours le même bruit</a></li>
+  <li><a href="#traiter-une-série-de-tableaux" id="toc-traiter-une-série-de-tableaux" class="nav-link" data-scroll-target="#traiter-une-série-de-tableaux"><span class="header-section-number">3.2</span> Traiter une série de tableaux</a></li>
   <li><a href="#vers-une-mise-en-production" id="toc-vers-une-mise-en-production" class="nav-link" data-scroll-target="#vers-une-mise-en-production"><span class="header-section-number">3.3</span> Vers une mise en production</a></li>
   <li><a href="#archiver-la-trace" id="toc-archiver-la-trace" class="nav-link" data-scroll-target="#archiver-la-trace"><span class="header-section-number">3.4</span> Archiver la trace</a></li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/InseeFrLab/dominoise-description/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/InseeFrLab/dominoise-description/blob/main/chapitres/03-plusieurs-tableaux.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div></nav>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/InseeFrLab/dominoise-description/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/InseeFrLab/dominoise-description/blob/main/chapitres/03-plusieurs-tableaux.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">
-<span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Perturber plusieurs tableaux</span>
-</h1>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Perturber plusieurs tableaux</span></h1>
 </div>
 
 
@@ -208,29 +229,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>Une diffusion réelle ne comporte jamais un seul tableau. Le chiffre d’affaires est publié par région, par secteur, par croisement des deux — et souvent sur plusieurs millésimes. Deux questions se posent alors : les perturbations restent-elles <strong>cohérentes</strong> entre publications, et comment traiter les tableaux <strong>en série</strong> ?</p>
-<section id="la-même-cellule-reçoit-toujours-le-même-bruit" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="la-même-cellule-reçoit-toujours-le-même-bruit">
-<span class="header-section-number">3.1</span> La même cellule reçoit toujours le même bruit</h2>
+</header>
+
+
+<p>Une diffusion réelle ne comporte jamais un seul tableau. Le chiffre d’affaires est publié par région, par secteur, par croisement des deux — et souvent sur plusieurs millésimes. Deux questions se posent alors : les perturbations restent-elles <strong>cohérentes</strong> entre publications, et comment traiter les tableaux <strong>en série</strong> ?</p>
+<section id="la-même-cellule-reçoit-toujours-le-même-bruit" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="la-même-cellule-reçoit-toujours-le-même-bruit"><span class="header-section-number">3.1</span> La même cellule reçoit toujours le même bruit</h2>
 <p>C’est la propriété centrale, et elle mérite d’être vérifiée plutôt que crue.</p>
 <p>Le tirage ne dépend ni du tableau, ni de la valeur de l’agrégat, mais uniquement de la <strong>clé de cellule</strong> — laquelle ne dépend que de ses contributeurs — du nom de l’indicateur et de l’opération d’agrégation. Deux cellules composées des mêmes entreprises portent donc la même clé, et reçoivent le même bruit, où qu’elles soient publiées.</p>
 <p>Notre jeu de démonstration contient un cas taillé pour l’illustrer : la région <code>R12</code> ne compte qu’un seul secteur, <code>S1</code>. La cellule « région R12 » du premier tableau et la cellule « R12 × S1 » du tableau croisé rassemblent exactement les mêmes entreprises.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pert_region</span> <span class="op">&lt;-</span> <span class="fu">pm_perturb</span><span class="op">(</span><span class="va">tables</span><span class="op">$</span><span class="va">region</span>, <span class="st">"ca"</span>, <span class="st">"ca_x1"</span>, <span class="st">"ck"</span>, <span class="va">params</span>,</span>
-<span>                          x2 <span class="op">=</span> <span class="st">"ca_x2"</span>, indicator <span class="op">=</span> <span class="st">"chiffre_affaires"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">pert_croise</span> <span class="op">&lt;-</span> <span class="fu">pm_perturb</span><span class="op">(</span><span class="va">tables</span><span class="op">$</span><span class="va">region_secteur</span>, <span class="st">"ca"</span>, <span class="st">"ca_x1"</span>, <span class="st">"ck"</span>, <span class="va">params</span>,</span>
-<span>                          x2 <span class="op">=</span> <span class="st">"ca_x2"</span>, indicator <span class="op">=</span> <span class="st">"chiffre_affaires"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">a</span> <span class="op">&lt;-</span> <span class="va">pert_region</span><span class="op">[</span><span class="va">pert_region</span><span class="op">$</span><span class="va">region</span> <span class="op">==</span> <span class="st">"R12"</span>, <span class="op">]</span></span>
-<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="va">pert_croise</span><span class="op">[</span><span class="va">pert_croise</span><span class="op">$</span><span class="va">region</span> <span class="op">==</span> <span class="st">"R12"</span>, <span class="op">]</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>source <span class="op">=</span> <span class="st">"région"</span>,  ck <span class="op">=</span> <span class="va">a</span><span class="op">$</span><span class="va">ck</span>, ca <span class="op">=</span> <span class="va">a</span><span class="op">$</span><span class="va">ca</span>, ca_pert <span class="op">=</span> <span class="va">a</span><span class="op">$</span><span class="va">ca_pert</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>source <span class="op">=</span> <span class="st">"croisé"</span>,  ck <span class="op">=</span> <span class="va">b</span><span class="op">$</span><span class="va">ck</span>, ca <span class="op">=</span> <span class="va">b</span><span class="op">$</span><span class="va">ca</span>, ca_pert <span class="op">=</span> <span class="va">b</span><span class="op">$</span><span class="va">ca_pert</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span><span class="co">#&gt;   source     ck    ca ca_pert</span></span>
-<span><span class="co">#&gt; 1 région 0.2097 31318   31253</span></span>
-<span><span class="co">#&gt; 2 croisé 0.2097 31318   31253</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pert_region <span class="ot">&lt;-</span> <span class="fu">pm_perturb</span>(tables<span class="sc">$</span>region, <span class="st">"ca"</span>, <span class="st">"ca_x1"</span>, <span class="st">"ck"</span>, params,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">x2 =</span> <span class="st">"ca_x2"</span>, <span class="at">indicator =</span> <span class="st">"chiffre_affaires"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>pert_croise <span class="ot">&lt;-</span> <span class="fu">pm_perturb</span>(tables<span class="sc">$</span>region_secteur, <span class="st">"ca"</span>, <span class="st">"ca_x1"</span>, <span class="st">"ck"</span>, params,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                          <span class="at">x2 =</span> <span class="st">"ca_x2"</span>, <span class="at">indicator =</span> <span class="st">"chiffre_affaires"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> pert_region[pert_region<span class="sc">$</span>region <span class="sc">==</span> <span class="st">"R12"</span>, ]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> pert_croise[pert_croise<span class="sc">$</span>region <span class="sc">==</span> <span class="st">"R12"</span>, ]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">source =</span> <span class="st">"région"</span>,  <span class="at">ck =</span> a<span class="sc">$</span>ck, <span class="at">ca =</span> a<span class="sc">$</span>ca, <span class="at">ca_pert =</span> a<span class="sc">$</span>ca_pert),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">source =</span> <span class="st">"croisé"</span>,  <span class="at">ck =</span> b<span class="sc">$</span>ck, <span class="at">ca =</span> b<span class="sc">$</span>ca, <span class="at">ca_pert =</span> b<span class="sc">$</span>ca_pert)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   source     ck    ca ca_pert</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 région 0.2097 31318   31253</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 croisé 0.2097 31318   31253</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Même clé, même total, même valeur perturbée. Cette cohérence n’est pas un effet secondaire : c’est elle qui ferme l’<strong>attaque par moyennage</strong>, où un attaquant observant plusieurs versions bruitées d’une même valeur en retrouverait la valeur réelle en les moyennant.</p>
 <div class="callout callout-style-default callout-important callout-titled" title="Ce que cette propriété exige de vous">
@@ -248,141 +272,147 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>À l’inverse, deux indicateurs distincts sur les mêmes cellules doivent recevoir des bruits indépendants — et c’est bien le cas, l’effet d’avalanche du hachage SHA-512 rendant les deux tirages sans lien apparent.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">autre</span> <span class="op">&lt;-</span> <span class="fu">pm_perturb</span><span class="op">(</span><span class="va">tables</span><span class="op">$</span><span class="va">region</span>, <span class="st">"ca"</span>, <span class="st">"ca_x1"</span>, <span class="st">"ck"</span>, <span class="va">params</span>,</span>
-<span>                    indicator <span class="op">=</span> <span class="st">"effectifs"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
-<span>  ck            <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">pert_region</span><span class="op">$</span><span class="va">ck</span>, <span class="fl">4</span><span class="op">)</span>,</span>
-<span>  cle_ca        <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">pert_region</span><span class="op">$</span><span class="va">ck_nu</span>, <span class="fl">4</span><span class="op">)</span>,</span>
-<span>  cle_effectifs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">autre</span><span class="op">$</span><span class="va">ck_nu</span>, <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span><span class="co">#&gt;       ck cle_ca cle_effectifs</span></span>
-<span><span class="co">#&gt; 1 0.2235 0.4400        0.5767</span></span>
-<span><span class="co">#&gt; 2 0.7124 0.1496        0.4786</span></span>
-<span><span class="co">#&gt; 3 0.8598 0.2030        0.6208</span></span>
-<span><span class="co">#&gt; 4 0.9016 0.6154        0.3949</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>autre <span class="ot">&lt;-</span> <span class="fu">pm_perturb</span>(tables<span class="sc">$</span>region, <span class="st">"ca"</span>, <span class="st">"ca_x1"</span>, <span class="st">"ck"</span>, params,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">indicator =</span> <span class="st">"effectifs"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ck            =</span> <span class="fu">head</span>(pert_region<span class="sc">$</span>ck, <span class="dv">4</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">cle_ca        =</span> <span class="fu">head</span>(pert_region<span class="sc">$</span>ck_nu, <span class="dv">4</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">cle_effectifs =</span> <span class="fu">head</span>(autre<span class="sc">$</span>ck_nu, <span class="dv">4</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       ck cle_ca cle_effectifs</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0.2235 0.4400        0.5767</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 0.7124 0.1496        0.4786</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 0.8598 0.2030        0.6208</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 0.9016 0.6154        0.3949</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section><section id="traiter-une-série-de-tableaux" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="traiter-une-série-de-tableaux">
-<span class="header-section-number">3.2</span> Traiter une série de tableaux</h2>
+</section>
+<section id="traiter-une-série-de-tableaux" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="traiter-une-série-de-tableaux"><span class="header-section-number">3.2</span> Traiter une série de tableaux</h2>
 <p>En pratique on dispose d’une liste de tableaux partageant le même schéma. Le plus simple est d’écrire une fonction de perturbation propre à la campagne, puis de l’appliquer à toute la liste.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">perturber</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">tab</span>, <span class="va">indicateur</span> <span class="op">=</span> <span class="st">"chiffre_affaires"</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu">pm_perturb</span><span class="op">(</span></span>
-<span>    <span class="va">tab</span>,</span>
-<span>    total     <span class="op">=</span> <span class="st">"ca"</span>,</span>
-<span>    x1        <span class="op">=</span> <span class="st">"ca_x1"</span>,</span>
-<span>    x2        <span class="op">=</span> <span class="st">"ca_x2"</span>,</span>
-<span>    ck_var    <span class="op">=</span> <span class="st">"ck"</span>,</span>
-<span>    params    <span class="op">=</span> <span class="va">params</span>,</span>
-<span>    indicator <span class="op">=</span> <span class="va">indicateur</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="va">tables_pert</span> <span class="op">&lt;-</span> <span class="fu">map</span><span class="op">(</span><span class="va">tables</span>, <span class="va">perturber</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">map_int</span><span class="op">(</span><span class="va">tables_pert</span>, <span class="va">nrow</span><span class="op">)</span></span>
-<span><span class="co">#&gt;         region        secteur region_secteur </span></span>
-<span><span class="co">#&gt;             12              8             89</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>perturber <span class="ot">&lt;-</span> <span class="cf">function</span>(tab, <span class="at">indicateur =</span> <span class="st">"chiffre_affaires"</span>) {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pm_perturb</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    tab,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">total     =</span> <span class="st">"ca"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x1        =</span> <span class="st">"ca_x1"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x2        =</span> <span class="st">"ca_x2"</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">ck_var    =</span> <span class="st">"ck"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">params    =</span> params,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">indicator =</span> indicateur</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>tables_pert <span class="ot">&lt;-</span> <span class="fu">map</span>(tables, perturber)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">map_int</span>(tables_pert, nrow)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         region        secteur region_secteur </span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             12              8             89</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Le même objet <code>params</code> sert pour tous les tableaux : c’est ce qui garantit qu’une seule politique de confidentialité gouverne l’ensemble de la diffusion.</p>
 <p>Les métriques se collectent de la même façon, en empilant les résultats :</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bilan_utilite</span> <span class="op">&lt;-</span> <span class="fu">imap</span><span class="op">(</span></span>
-<span>  <span class="va">tables_pert</span>,</span>
-<span>  \<span class="op">(</span><span class="va">x</span>, <span class="va">nom</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span>tableau <span class="op">=</span> <span class="va">nom</span>, <span class="fu">assess_utility_empirical</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">list_rbind</span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">bilan_utilite</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"tableau"</span>, <span class="st">"n_cells"</span>, <span class="st">"mean_abs_dev"</span>,</span>
-<span>                  <span class="st">"theo_mean_abs"</span>, <span class="st">"max_abs_dev"</span><span class="op">)</span><span class="op">]</span></span>
-<span><span class="co">#&gt;          tableau n_cells mean_abs_dev theo_mean_abs max_abs_dev</span></span>
-<span><span class="co">#&gt; 1         region      12        2.219         2.043       6.906</span></span>
-<span><span class="co">#&gt; 2        secteur       8        1.922         2.475       5.490</span></span>
-<span><span class="co">#&gt; 3 region_secteur      89        4.116         4.624      47.796</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>bilan_utilite <span class="ot">&lt;-</span> <span class="fu">imap</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  tables_pert,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  \(x, nom) <span class="fu">cbind</span>(<span class="at">tableau =</span> nom, <span class="fu">assess_utility_empirical</span>(x))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list_rbind</span>()</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>bilan_utilite[, <span class="fu">c</span>(<span class="st">"tableau"</span>, <span class="st">"n_cells"</span>, <span class="st">"mean_abs_dev"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"theo_mean_abs"</span>, <span class="st">"max_abs_dev"</span>)]</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          tableau n_cells mean_abs_dev theo_mean_abs max_abs_dev</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1         region      12        2.219         2.043       6.906</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2        secteur       8        1.922         2.475       5.490</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 region_secteur      89        4.116         4.624      47.796</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bilan_risque</span> <span class="op">&lt;-</span> <span class="fu">imap</span><span class="op">(</span></span>
-<span>  <span class="va">tables_pert</span>,</span>
-<span>  \<span class="op">(</span><span class="va">x</span>, <span class="va">nom</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span>tableau <span class="op">=</span> <span class="va">nom</span>, <span class="fu">assess_risk_empirical</span><span class="op">(</span><span class="va">x</span>, scenario <span class="op">=</span> <span class="st">"I"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">list_rbind</span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">bilan_risque</span></span>
-<span><span class="co">#&gt;          tableau scenario beta n_cells observed_pct  theo_mean   theo_max</span></span>
-<span><span class="co">#&gt; 1         region        I  0.2      12        0.000 2.346e-109 2.816e-108</span></span>
-<span><span class="co">#&gt; 2        secteur        I  0.2       8        0.000  3.737e-05  2.990e-04</span></span>
-<span><span class="co">#&gt; 3 region_secteur        I  0.2      89        2.247  4.260e-02  4.613e-01</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>bilan_risque <span class="ot">&lt;-</span> <span class="fu">imap</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  tables_pert,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  \(x, nom) <span class="fu">cbind</span>(<span class="at">tableau =</span> nom, <span class="fu">assess_risk_empirical</span>(x, <span class="at">scenario =</span> <span class="st">"I"</span>))</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list_rbind</span>()</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>bilan_risque</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          tableau scenario beta n_cells observed_pct  theo_mean   theo_max</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1         region        I  0.2      12        0.000 2.346e-109 2.816e-108</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2        secteur        I  0.2       8        0.000  3.737e-05  2.990e-04</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 region_secteur        I  0.2      89        2.247  4.260e-02  4.613e-01</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>La lecture est instructive : le tableau croisé, plus fin, comporte davantage de cellules fortement dominées, donc une perte moyenne plus élevée — le mécanisme concentre bien le bruit là où le risque se situe.</p>
-</section><section id="vers-une-mise-en-production" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="vers-une-mise-en-production">
-<span class="header-section-number">3.3</span> Vers une mise en production</h2>
+</section>
+<section id="vers-une-mise-en-production" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="vers-une-mise-en-production"><span class="header-section-number">3.3</span> Vers une mise en production</h2>
 <p>Dès que les indicateurs se multiplient, mieux vaut piloter le traitement par une <strong>table de configuration</strong> plutôt que par du code répété. Chaque ligne y décrit un travail à effectuer : quel tableau, quel indicateur, quelle opération.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">plan</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html">expand.grid</a></span><span class="op">(</span></span>
-<span>  tableau    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">tables</span><span class="op">)</span>,</span>
-<span>  indicateur <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"chiffre_affaires"</span>, <span class="st">"effectifs"</span><span class="op">)</span>,</span>
-<span>  stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span><span class="op">)</span></span>
-<span><span class="va">plan</span><span class="op">$</span><span class="va">operation</span> <span class="op">&lt;-</span> <span class="st">"sum"</span></span>
-<span><span class="va">plan</span></span>
-<span><span class="co">#&gt;          tableau       indicateur operation</span></span>
-<span><span class="co">#&gt; 1         region chiffre_affaires       sum</span></span>
-<span><span class="co">#&gt; 2        secteur chiffre_affaires       sum</span></span>
-<span><span class="co">#&gt; 3 region_secteur chiffre_affaires       sum</span></span>
-<span><span class="co">#&gt; 4         region        effectifs       sum</span></span>
-<span><span class="co">#&gt; 5        secteur        effectifs       sum</span></span>
-<span><span class="co">#&gt; 6 region_secteur        effectifs       sum</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">tableau    =</span> <span class="fu">names</span>(tables),</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">indicateur =</span> <span class="fu">c</span>(<span class="st">"chiffre_affaires"</span>, <span class="st">"effectifs"</span>),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>plan<span class="sc">$</span>operation <span class="ot">&lt;-</span> <span class="st">"sum"</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>plan</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          tableau       indicateur operation</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1         region chiffre_affaires       sum</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2        secteur chiffre_affaires       sum</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 region_secteur chiffre_affaires       sum</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4         region        effectifs       sum</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5        secteur        effectifs       sum</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 region_secteur        effectifs       sum</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">resultats</span> <span class="op">&lt;-</span> <span class="fu">pmap</span><span class="op">(</span><span class="va">plan</span>, <span class="kw">function</span><span class="op">(</span><span class="va">tableau</span>, <span class="va">indicateur</span>, <span class="va">operation</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu">pm_perturb</span><span class="op">(</span></span>
-<span>    <span class="va">tables</span><span class="op">[[</span><span class="va">tableau</span><span class="op">]</span><span class="op">]</span>,</span>
-<span>    total <span class="op">=</span> <span class="st">"ca"</span>, x1 <span class="op">=</span> <span class="st">"ca_x1"</span>, x2 <span class="op">=</span> <span class="st">"ca_x2"</span>, ck_var <span class="op">=</span> <span class="st">"ck"</span>,</span>
-<span>    params <span class="op">=</span> <span class="va">params</span>, indicator <span class="op">=</span> <span class="va">indicateur</span>, operation <span class="op">=</span> <span class="va">operation</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">}</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">resultats</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">plan</span><span class="op">$</span><span class="va">tableau</span>, <span class="va">plan</span><span class="op">$</span><span class="va">indicateur</span>, sep <span class="op">=</span> <span class="st">"__"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">resultats</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "region__chiffre_affaires"         "secteur__chiffre_affaires"       </span></span>
-<span><span class="co">#&gt; [3] "region_secteur__chiffre_affaires" "region__effectifs"               </span></span>
-<span><span class="co">#&gt; [5] "secteur__effectifs"               "region_secteur__effectifs"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>resultats <span class="ot">&lt;-</span> <span class="fu">pmap</span>(plan, <span class="cf">function</span>(tableau, indicateur, operation) {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pm_perturb</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    tables[[tableau]],</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">total =</span> <span class="st">"ca"</span>, <span class="at">x1 =</span> <span class="st">"ca_x1"</span>, <span class="at">x2 =</span> <span class="st">"ca_x2"</span>, <span class="at">ck_var =</span> <span class="st">"ck"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">params =</span> params, <span class="at">indicator =</span> indicateur, <span class="at">operation =</span> operation</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(resultats) <span class="ot">&lt;-</span> <span class="fu">paste</span>(plan<span class="sc">$</span>tableau, plan<span class="sc">$</span>indicateur, <span class="at">sep =</span> <span class="st">"__"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(resultats)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "region__chiffre_affaires"         "secteur__chiffre_affaires"       </span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3] "region_secteur__chiffre_affaires" "region__effectifs"               </span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5] "secteur__effectifs"               "region_secteur__effectifs"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Cette forme apporte trois bénéfices en production. Le plan est <strong>auditable</strong> : on voit d’un coup d’œil ce qui a été traité, et sous quel nom d’indicateur. Il est <strong>versionnable</strong> : conservé d’une campagne à l’autre, il documente les conventions de nommage dont dépend la cohérence. Et il est <strong>parallélisable</strong> : <code>pmap()</code> se remplace par <code>furrr::future_pmap()</code> sans autre changement, ce qui compte sur des tableaux volumineux.</p>
-</section><section id="archiver-la-trace" class="level2" data-number="3.4"><h2 data-number="3.4" class="anchored" data-anchor-id="archiver-la-trace">
-<span class="header-section-number">3.4</span> Archiver la trace</h2>
+</section>
+<section id="archiver-la-trace" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="archiver-la-trace"><span class="header-section-number">3.4</span> Archiver la trace</h2>
 <p>Chaque table perturbée emporte sa configuration. Il est prudent de la collecter séparément avant toute manipulation, les verbes <code>dplyr</code> supprimant les attributs.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">traces</span> <span class="op">&lt;-</span> <span class="fu">imap</span><span class="op">(</span><span class="va">resultats</span>, \<span class="op">(</span><span class="va">x</span>, <span class="va">nom</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/attr.html">attr</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"pm_meta"</span><span class="op">)</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
-<span>    sortie     <span class="op">=</span> <span class="va">nom</span>,</span>
-<span>    indicateur <span class="op">=</span> <span class="va">m</span><span class="op">$</span><span class="va">indicator</span>,</span>
-<span>    operation  <span class="op">=</span> <span class="va">m</span><span class="op">$</span><span class="va">operation</span>,</span>
-<span>    sigma_nu   <span class="op">=</span> <span class="va">m</span><span class="op">$</span><span class="va">params</span><span class="op">$</span><span class="va">mechanism</span><span class="op">$</span><span class="va">sigma_nu</span>,</span>
-<span>    sigma_eps  <span class="op">=</span> <span class="va">m</span><span class="op">$</span><span class="va">params</span><span class="op">$</span><span class="va">mechanism</span><span class="op">$</span><span class="va">sigma_eps</span>,</span>
-<span>    n          <span class="op">=</span> <span class="va">m</span><span class="op">$</span><span class="va">params</span><span class="op">$</span><span class="va">mechanism</span><span class="op">$</span><span class="va">n</span>,</span>
-<span>    key_digits <span class="op">=</span> <span class="va">m</span><span class="op">$</span><span class="va">key_digits</span>,</span>
-<span>    cellules   <span class="op">=</span> <span class="va">m</span><span class="op">$</span><span class="va">n_cells</span>,</span>
-<span>    non_perturbees <span class="op">=</span> <span class="va">m</span><span class="op">$</span><span class="va">n_unperturbed</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">}</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">list_rbind</span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">traces</span>, <span class="fl">3</span><span class="op">)</span></span>
-<span><span class="co">#&gt;                             sortie       indicateur operation sigma_nu</span></span>
-<span><span class="co">#&gt; 1         region__chiffre_affaires chiffre_affaires       sum      0.4</span></span>
-<span><span class="co">#&gt; 2        secteur__chiffre_affaires chiffre_affaires       sum      0.4</span></span>
-<span><span class="co">#&gt; 3 region_secteur__chiffre_affaires chiffre_affaires       sum      0.4</span></span>
-<span><span class="co">#&gt;   sigma_eps n key_digits cellules non_perturbees</span></span>
-<span><span class="co">#&gt; 1   0.02551 4          9       12              0</span></span>
-<span><span class="co">#&gt; 2   0.02551 4          9        8              0</span></span>
-<span><span class="co">#&gt; 3   0.02551 4          9       89              0</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>traces <span class="ot">&lt;-</span> <span class="fu">imap</span>(resultats, \(x, nom) {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  m <span class="ot">&lt;-</span> <span class="fu">attr</span>(x, <span class="st">"pm_meta"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">sortie     =</span> nom,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">indicateur =</span> m<span class="sc">$</span>indicator,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">operation  =</span> m<span class="sc">$</span>operation,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">sigma_nu   =</span> m<span class="sc">$</span>params<span class="sc">$</span>mechanism<span class="sc">$</span>sigma_nu,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">sigma_eps  =</span> m<span class="sc">$</span>params<span class="sc">$</span>mechanism<span class="sc">$</span>sigma_eps,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">n          =</span> m<span class="sc">$</span>params<span class="sc">$</span>mechanism<span class="sc">$</span>n,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">key_digits =</span> m<span class="sc">$</span>key_digits,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">cellules   =</span> m<span class="sc">$</span>n_cells,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">non_perturbees =</span> m<span class="sc">$</span>n_unperturbed</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>}) <span class="sc">|&gt;</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list_rbind</span>()</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(traces, <span class="dv">3</span>)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                             sortie       indicateur operation sigma_nu</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1         region__chiffre_affaires chiffre_affaires       sum      0.4</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2        secteur__chiffre_affaires chiffre_affaires       sum      0.4</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 region_secteur__chiffre_affaires chiffre_affaires       sum      0.4</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   sigma_eps n key_digits cellules non_perturbees</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   0.02551 4          9       12              0</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   0.02551 4          9        8              0</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   0.02551 4          9       89              0</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Ce petit tableau est la pièce à archiver avec la diffusion : il contient tout ce qu’il faut pour reproduire la perturbation à l’identique, ou pour justifier les choix devant un comité — à condition, bien sûr, que les clés individuelles soient elles aussi conservées.</p>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -781,7 +811,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       }
     }
   });
-  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
       <a href="../chapitres/02-un-tableau.html" class="pagination-link" aria-label="Perturber un tableau">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Perturber un tableau</span></span>
       </a>          
@@ -793,6 +825,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 
