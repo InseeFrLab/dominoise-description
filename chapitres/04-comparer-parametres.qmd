@@ -58,10 +58,10 @@ bilan |>
   select(n, risk_max, rho_at_max_risk, EZ_min, EZ_max)
 ```
 
-**$\sigma_\varepsilon$ fixe le plancher de perte.** La colonne `EZ_min`, la perte
-subie par les cellules les moins concentrées, ne dépend que de lui — et vaut zéro
-quand il est nul. C'est le bruit universel, appliqué à toutes les cellules y
-compris les moins sensibles.
+**$\sigma_\varepsilon$ fixe le plancher de perte.** La colonne `EZ_min`, la 
+perte subie par les cellules les moins concentrées, ne dépend que de lui — et
+vaut zéro quand il est nul. C'est le bruit universel, appliqué à toutes les 
+cellules y compris les moins sensibles.
 
 ```{r}
 bilan |>
@@ -147,8 +147,7 @@ bilan |>
 Parmi les couples respectant le plafond, celui qui minimise la perte maximale
 n'est pas nécessairement le meilleur : un $\sigma_\nu$ plus élevé autorise un
 $n$ plus grand, donc épargne davantage les cellules de dominance intermédiaire.
-Départager suppose de savoir **où se situent** les cellules à diffuser — ce que
-le profil de dominance du tableau réel permettra de trancher.
+
 
 Le chapitre suivant reprend cette comparaison sous forme de procédure, en la
 menant scénario par scénario.

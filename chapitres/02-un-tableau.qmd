@@ -24,7 +24,7 @@ Notre tableau de démonstration coche ces cases : le chiffre d'affaires régiona
 sa plus grosse et sa deuxième contribution, et la clé.
 
 ```{r}
-tab <- tables$region
+tab <- tables$region_secteur
 head(tab)
 ```
 
