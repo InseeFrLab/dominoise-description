@@ -5,7 +5,7 @@
 source("R/setup.R")
 ```
 
-`dominoise` met en œuvre le mécanisme de perturbation décrit dans
+`dominoise` met en œuvre le mécanisme de perturbation décrit dans 
 @jamme2026 : un bruit multiplicatif dont les mesures de risque et de perte
 d'information s'expriment sous forme analytique, ce qui fait du choix des
 paramètres une décision raisonnée plutôt qu'un réglage empirique.
